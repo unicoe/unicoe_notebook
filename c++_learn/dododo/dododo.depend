@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1530022686 source:/home/user/Disk1.8T/unicoe_notebook/c++_learn/dododo/main.cpp
+	<cmath>
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+

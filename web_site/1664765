@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/han_xiaoyang/article/category/1664765"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>寒小阳 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/list-0eef92cf0e.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-4e9c30ca0e.min.css">
+
+    <script type="text/javascript">
+        var username = "yaoqiang2011";
+        var blog_address = "https://blog.csdn.net/han_xiaoyang";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/han_xiaoyang/article/category/1664765"
+        var blogUrl = "https://blog.csdn.net/";
+        var curSkin = "skin-yellow";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+        <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+    <script src="https://csdnimg.cn/public/sandalstrap/1.3/fonts/csdnc/csdnc.js"></script><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<header>
+	<div class="container d-flex clearfix">
+		<div class="title-box">
+			<h2 class="title-blog">
+				<a href="https://blog.csdn.net/han_xiaoyang">寒小阳</a>
+			</h2>
+			<p class="description">专注机器学习/数据挖掘</p>
+		</div>
+		<div class="opt-box d-flex justify-content-end">
+			<a class="btn btn-sm" href="https://blog.csdn.net/han_xiaoyang/rss/list">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#csdnc-rss"></use>
+					</svg>RSS订阅</a>
+					</div>
+	</div>
+</header><script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+    <main>
+      <div class="filter-box d-flex align-items-center">
+    <div class="breadcrumbs-box">
+    <a href="https://blog.csdn.net/yaoqiang2011">全部文章</a><span class="ml8 mr8">></span>              找工作笔试面试那些事儿                </div>
+    <dl class="filter-sort-box d-flex align-items-center">
+    <dt>排序：</dt>
+    <dd><a href="javascript:void(0);" class="btn-filter-sort active" target="_self">默认</a></dd>
+    <dd><a href="https://blog.csdn.net/han_xiaoyang/article/category/1664765?orderby=UpdateTime" class="btn-filter-sort " target="_self">按更新时间</a></dd>
+    <dd><a href="https://blog.csdn.net/han_xiaoyang/article/category/1664765?orderby=ViewCount" class="btn-filter-sort " target="_self">按访问量</a></dd>
+  </dl>
+</div>
+
+
+
+<div class="article-list">
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11908189">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11908189" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(17)---linux测试题      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11908189" target="_blank">
+        作者：寒小阳
+时间：2013年9月。
+出处：http://blog.csdn.net/han_xiaoyang/article/details/11400719。
+声明：版权所有，转载请注明出处，谢谢。
+
+   在对linux基本知识的归纳总结之后，这里是一份linux的测试题。希望能帮助大家复习...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-22 21:20:12</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：9480</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：7</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11492379">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11492379" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(16)---linux相关知识点(1)      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11492379" target="_blank">
+        linux这部分的知识倒不是笔试面试必考的内容，不过现在很多公司开发环境都在linux系统下，一些简单的知识还是需要了解一下的，笔试面试中万一碰到了，也不会措手不及。作为菜硕的我，又因为读研期间的项目大部分是windows下的开发，在当时面试过程中就闹过几次笑话。尴尬过后也找了本书啃了啃，顺便找了...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-09 22:19:16</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：13082</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：3</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11400719">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11400719" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(15)---互联网公司面试的零零种种和多家经验      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11400719" target="_blank">
+        前面从宏观的角度，根据师兄师姐口口相传的经验和自己的面试经历，写了点面试应该注意的点。这里针对，互联网公司，总结总结面试注意的点，里面的一部分内容出自一些优秀的大牛口中或笔下，一部分是自己的客观感受，也许会有挺多地方说的不对，望大家指出，谢谢。
+1。
+
+      看到之前有人把100分的互联网面...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-09 11:07:05</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：31301</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：28</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11331383">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11331383" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(14)---轻松一下，谈谈面试注意的点      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11331383" target="_blank">
+        前面blablabla一通面试各种知识点和测试题，各位估计也都烦了。想来就中场休息一下，讲讲面试时候注意的东西吧。本人不才，能力一般，但去年随着笔试面试大潮还是经历了一些大大小小的笔试面试的，多少还是有些收获的；google和hulu这样的公司虽然木有去面过，但是也听身边的大牛同学们聊了些些，这里...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-07 17:25:00</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：13690</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：3</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11285485">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11285485" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(13)---操作系统常考知识点总结      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11285485" target="_blank">
+        上一节对数据库的知识做了一个小总结，实际找工作过程中，因为公司或单位侧重点不一样，考察的知识也是不尽相同的，但是作为计算机类的学生，操作系统的知识也是必不可少的，去年参加笔试面试的时候，腾讯微软阿里等公司的笔试题都或多或少对操作系统相关的知识点进行了考察。作为一个非计算机科班出生的学僧，当初并没有...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-07 14:59:00</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：20523</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：5</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11144745">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11144745" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(12)---数据库测试题      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11144745" target="_blank">
+        照例，在对数据库基本知识(尤其是SQL语句和范式)的归纳总结之后，来一份小测试题。题目的难度大致和大学数据库原理与应用课程期末考试相当，大家看看，通过题目再次熟悉熟悉知识。
+
+关系数据库规范化是为解决关系数据库中（ A ）问题而引入的。
+    A. 插入异常、删除异常和数据冗余 B. 提高查询速...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-05 16:24:45</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：12379</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：3</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11092549">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11092549" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(11)---数据库知识总结(2)范式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11092549" target="_blank">
+        第五节
+      一、相关概念
+
+       1. 数据依赖：反映一个关系内部属性与属性之间的约束关系，是现实世界属性间相互联系的抽象，属于数据内在的性质和语义的体现。
+       2. 规范化理论：是用来设计良好的关系模式的基本理论。它通过分解关系模式来消除其中不合适的数据依赖，以解决插入...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-04 22:20:01</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：10988</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：2</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11020381">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11020381" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(10)---SQL语句总结      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11020381" target="_blank">
+        SQL语句中常用关键词及其解释如下：
+1）SELECT
+将资料从数据库中的表格内选出，两个关键字：从 (FROM) 数据库中的表格内选出 (SELECT)。语法为
+SELECT &quot;栏位名&quot; FROM &quot;表格名&quot;。
+
+2）DISTINCT
+在上述 SELECT...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-03 21:36:07</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：16285</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：3</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="11006703">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11006703" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(9)---数据库知识总结(1)      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/11006703" target="_blank">
+        数据库也是计算机类笔试面试中不可避免会遇到的考点，尤其是银行和部分传统软件类公司。这里根据整理的资料，对数据库的相关知识也做个总结吧。希望学过数据库但长时间不用的同学根据这些知识能够回忆和重拾，没学过的同学能掌握一些数据库的基础知识。
+第一节
+      一.相关概念
+1. Data：数据，是数据...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-03 21:04:45</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：19102</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：1</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10949147">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10949147" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(8)---常问的CC++基础题      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10949147" target="_blank">
+        这一部分是C/C++程序员在面试的时候会被问到的一些题目的汇总。来源于基本笔试面试书籍，可能有一部分题比较老，但是这也算是基础中的基础，就归纳归纳放上来了。大牛们看到一笑而过就好，普通人看看要是能补上一两个模糊的知识点，也算有点进步吧。
+
+1.简述变量声明和定义的区别。 
+       为变量分配...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-02 21:17:21</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：12729</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：15</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10896159">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10896159" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(7)---测试题答案      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10896159" target="_blank">
+        一、请填写BOOL  , float,  指针变量  与“零值”比较的 if  语句。 
+提示：这里“零值”可以是0 ,  0.0 , FALSE 或者“空指针”。例如 int  变量 n  与“零值”
+比较的 if  语句为： 
+        if ( n  ==  0 )  
+       ...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-02 09:36:00</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：9797</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：5</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10894159">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10894159" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(6)---简单测试题      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10894159" target="_blank">
+        C/C++测试题
+      前几个部分从编程风格、函数设计、内存管理和类的一些相关知识和注意点出发，对C/C++基础知识和笔试面试易考察的点进行了归纳总结。下面这是针对前述知识出的一份测试题，也是一些易考点，大家认真阅读了之前的部分，这些题大家都很容易就能做出来。
+
+一、请填写BOOL, flo...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-02 08:43:37</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：9419</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：0</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10833931">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10833931" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(5)---构造函数、析构函数和赋值函数      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10833931" target="_blank">
+        类的构造函数、析构函数与赋值函数
+      学过C++的人都说自己知道构造函数、析构函数与赋值函数。它们看似太普通，以致让人容易麻痹大意，但请你认真读完这部分内容，你会发现这些貌似简单的函数实则像没有顶盖的下水道那样危险。
+      每个类只有一个析构函数和一个赋值函数，但可以有多个构造函数（...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-01 18:58:16</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：11032</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：7</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10827689">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10827689" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(4)---C++函数高级特征      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10827689" target="_blank">
+        C++函数的高级特征
+      重载（overloaded）、内联（inline）、const 和virtual是C++独有而C不具有的四种机制。其中重载和内联机制既可用于全局函数也可用于类的成员函数，const 与virtual机制仅用于类的成员函数。重载和内联是一把双刃剑，用的好可以提高效率...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-09-01 16:05:47</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：10937</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：3</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10676931">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10676931" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(3)---内存管理那些事      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10676931" target="_blank">
+        七、内存管理
+       在写C/C++程序的时候，最头疼的部分一定包括内存管理，一提到内存管理总是提心吊胆，但是又不可避免地常常会遇到，而这块的知识也是公司招聘的一个评价方面，能够很好地体现笔试面试者的功底。这部分的内容稍深一些，大家细心阅读，能对内存管理有一个比较好的把握。
+7.1 内存分配...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-08-30 22:56:46</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：12882</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：8</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10539723">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10539723" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(2)---函数那些事      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10539723" target="_blank">
+        六、函数那些事
+       函数是C++/C 程序的基本功能单元，当然是笔试面试重点考察内容。函数接口的两个要素是参数和返回值。C 语言中，函数的参数和返回值的传递方式有两种：值传递（pass by value）和指针传递（pass by pointer）。C++语言中多了引用传递（passby...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-08-29 17:30:20</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：10500</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：0</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10515417">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10515417" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(1)---C,C++基础和编程风格(2)      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10515417" target="_blank">
+        四、表达式和基本语句
+4.1 运算符与复合表达式
+       首先非常重要的一个点是C/C++运算符的优先级问题，下图为总结的一张表，结合律特殊的运算符已经用黑体加粗标明出来了。
+
+       说实话，上表中的运算符优先级和结合律要熟记是非常困难的。虽说有表在，但是也不能每次都查表，所以我们在...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-08-29 14:40:38</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：11603</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：5</span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="10473845">
+        <h4 class="text-truncate">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10473845" target="_blank">
+        <span class="article-type type-1">
+            原        </span>
+        找工作笔试面试那些事儿(1)---C,C++基础和编程风格(1)      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/yaoqiang2011/article/details/10473845" target="_blank">
+        前言
+       眼看着又要到一年一度的找工作季了，遥想去年这会儿，学校同学们也都是一副要上战场似得枕戈待旦整装待发的情景。想来自己当时笔试面试也确实参加了不少，无奈技术和智商平平，最后结果一般，但也确实经历了不少，外加一直有总结和整理资料的小习惯，手头上确实攒下了一些笔试面试的资源。又最近频繁...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2013-08-28 21:46:40</span>
+      </p>
+      <p>
+        <span class="read-num">阅读数：16503</span>
+      </p>
+      <p>
+        <span class="read-num">评论数：2</span>
+      </p>
+    </div>
+      </div>
+</div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://my.csdn.net/yaoqiang2011">
+                <img src="https://avatar.csdn.net/F/5/8/3_yaoqiang2011.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://my.csdn.net/yaoqiang2011" target="_blank" class="text-truncate" id="uid">yaoqiang2011</a>
+            </p>
+                        <p class="flag">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/han_xiaoyang/article/category/1664765" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="115">
+                        <dt><a href="https://blog.csdn.net/han_xiaoyang?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/han_xiaoyang?t=1"><span class="count">115</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="7115">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">7115</span></dd>
+        </dl>
+        <dl class="text-center" title="1251">
+            <dt>喜欢</dt>
+            <dd><span class="count">1251</span></dd>
+        </dl>
+        <dl class="text-center" title="903">
+            <dt>评论</dt>
+            <dd><span class="count">903</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="7级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-7"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="2328950">
+                232万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="12830">
+                1万+            </dd>
+        </dl>
+        <dl title="1401">
+            <dt>排名：</dt>
+            <dd>1401</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                <a class="icon-badge" title="专栏达人">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-columns"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item1">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-columns"></use>
+                        </svg>
+                        <p>专栏达人</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！
+                    </div>
+                </div>
+            </div> 
+        </a>  
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+        <!-- 投放代码 -->
+        <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>
+    </div>
+</div>
+		    <!--自定义模块-->
+<div id="asideCustom41018491" class="aside-box custom-box">
+    <h3 class="aside-title">个人介绍与联系方式</h3>
+    <div class="aside-content clearfix">
+        <p><strong>寒小阳</strong></p>
+<p>海淀区『明光村计算机职业技能学校』烟酒僧毕业。有几年机器学习/数据挖掘工作经验。大厂打过杂，做过几个NLP、推荐系统、点击率预估、深度学习图像分类/检索相关项目。欢迎联系和交流。</p>
+<br>
+<p><strong>EMAIL</strong>:hanxiaoyang.ml@gmail.com&nbsp; </p>
+<p><strong>QQ</strong>: 3127303203</p>
+<br>
+<p><strong>数据科学沙龙QQ群</strong></p>
+<p>2000人群169492443(已满)<br>2000人群564538990(已满)<br>2000人群285273721<br>不定期有机器学习/数据科学公开课和线上讨论</p>
+<br>
+<p><strong>其余机器学习QQ群</strong></p>
+<p>439183906(已满), 373038809(已满)，194141072(已满) </p>    </div>
+</div>
+		    		    <div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/column/details/dl-computer-vision.html">
+                            <img src="https://img-blog.csdn.net/20160104122441377?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/column/details/dl-computer-vision.html">深度学习与计算机视觉</a></p>
+                        <div class="data">阅读量：<span>444093</span><span class="count">11 篇</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/column/details/machine-learning-dm.html">
+                            <img src="https://img-blog.csdn.net/20160106154827475?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/column/details/machine-learning-dm.html">机器学习与数据挖掘</a></p>
+                        <div class="data">阅读量：<span>958707</span><span class="count">28 篇</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/column/details/dl-nlp.html">
+                            <img src="https://img-blog.csdn.net/20160727095654444?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/column/details/dl-nlp.html">深度学习与自然语言处理</a></p>
+                        <div class="data">阅读量：<span>204129</span><span class="count">8 篇</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1664765">
+                    找工作笔试面试那些事儿                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1664883">
+                    算法那些事儿                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1631023">
+                    名企试题分析                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1633067">
+                    笔试面试基础知识                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1664763">
+                    perl那些事儿                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1664757">
+                    机器翻译                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/1713643">
+                    工具&amp;&amp;技巧                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/5877239">
+                    机器学习/数据挖掘                    <span class="count float-right">38篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/5926087">
+                    计划说明                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/5957815">
+                    计算机视觉                    <span class="count float-right">23篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/5990547">
+                    神经网络                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/6075133">
+                    自然语言处理                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/6081302">
+                    ML学习分享系列                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/category/6256954">
+                    深度学习与自然语言处理                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/08">
+                    2016年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/07">
+                    2016年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/06">
+                    2016年6月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/04">
+                    2016年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/03">
+                    2016年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/02">
+                    2016年2月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2016/01">
+                    2016年1月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2015/12">
+                    2015年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2013/10">
+                    2013年10月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2013/09">
+                    2013年9月                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yaoqiang2011/article/month/2013/08">
+                    2013年8月                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js?20180309" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask"></div>
+<div class="promptBox clearfix">
+    <div class="title clearfix bottom-dis-16">
+        <span class="float-left">提示</span>
+        <a class="float-right Boxclose">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-times"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="text">确定要删除当前文章？</div>
+    <div class="pro-btn float-right">
+        <a class="clickNo">取消</a>
+        <a class="clickYes">删除</a>
+    </div>
+</div>
+<script>
+    var currentPage = 1;
+    var baseUrl = 'https://blog.csdn.net/han_xiaoyang/article/category/1664765' ;
+    var pageSize = 20 ;
+    var listTotal = 18 ;
+    var pageQueryStr = '';
+    function getAllUrl(page) {
+        return baseUrl + "/" + page + pageQueryStr;
+    }
+</script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-bd54b21308.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/list-150d23d4c1.min.js"></script>
+
+<script>
+    GoTop({
+        right: 8
+    })
+</script>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+</body>
+</html>

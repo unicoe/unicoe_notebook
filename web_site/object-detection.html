@@ -1,0 +1,3372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Object Detection - handong1587</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="handong1587" />
+        <meta name="description" content="handong1587's blog" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="https://handong1587.github.io/atom.xml" />
+        <link rel="shortcut icon" href="/images/shortcut.jpg" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='https://fonts.useso.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://handong1587.github.io/css/syntax.css">
+        <link rel="stylesheet" href="https://handong1587.github.io/css/main.css">
+        <!-- also for jquery-lunr-search.js to use -->
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+
+        
+        
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?9144251ce5a4f4019de4bc601b9b490b";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        
+    </head>
+
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="https://handong1587.github.io"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/index.html">
+                                HOME
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/categories.html">
+                                CATEGORIES
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/archives.html">
+                                ARCHIVES
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/links.html">
+                                LINKS
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/search.html">
+                                SEARCH
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="https://handong1587.github.io/about.html">
+                                ABOUT ME
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/atom.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com/" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="https://www.facebook.com/" target="_blank"><i class="icon-facebook"></i></a>
+                    
+                    <a href="https://github.com/handong1587/" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                    <a href="https://www.twitter.com/" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                    <a href="https://plus.google.com/116595571760191938657/about" target="_blank"><i class="icon-google-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    <div class="article article-post">
+    <h2 class="title">Object Detection</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">09 Oct 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="https://handong1587.github.io/categories.html#deep_learning-ref" >deep_learning</a></span>
+    </div>
+    <div id="toc"></div>
+    <table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Method</th>
+      <th style="text-align: center">backbone</th>
+      <th style="text-align: center">test size</th>
+      <th style="text-align: center">VOC2007</th>
+      <th style="text-align: center">VOC2010</th>
+      <th style="text-align: center">VOC2012</th>
+      <th style="text-align: center">ILSVRC 2013</th>
+      <th style="text-align: center">MSCOCO 2015</th>
+      <th style="text-align: center">Speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">OverFeat</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">24.3%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">R-CNN</td>
+      <td style="text-align: center">AlexNet</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">58.5%</td>
+      <td style="text-align: center">53.7%</td>
+      <td style="text-align: center">53.3%</td>
+      <td style="text-align: center">31.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">R-CNN</td>
+      <td style="text-align: center">VGG16</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">66.0%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SPP_net</td>
+      <td style="text-align: center">ZF-5</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">54.2%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">31.84%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">DeepID-Net</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">64.1%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">50.3%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">NoC</td>
+      <td style="text-align: center">73.3%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">68.8%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Fast-RCNN</td>
+      <td style="text-align: center">VGG16</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">70.0%</td>
+      <td style="text-align: center">68.8%</td>
+      <td style="text-align: center">68.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">19.7%(@[0.5-0.95]), 35.9%(@0.5)</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">MR-CNN</td>
+      <td style="text-align: center">78.2%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">73.9%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Faster-RCNN</td>
+      <td style="text-align: center">VGG16</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">78.8%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">75.9%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">21.9%(@[0.5-0.95]), 42.7%(@0.5)</td>
+      <td style="text-align: center">198ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Faster-RCNN</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">85.6%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">83.8%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">37.4%(@[0.5-0.95]), 59.0%(@0.5)</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">YOLO</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">63.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">57.9%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">45 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">YOLO VGG-16</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">66.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">21 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">YOLOv2</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">448x448</td>
+      <td style="text-align: center">78.6%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">73.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">21.6%(@[0.5-0.95]), 44.0%(@0.5)</td>
+      <td style="text-align: center">40 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SSD</td>
+      <td style="text-align: center">VGG16</td>
+      <td style="text-align: center">300x300</td>
+      <td style="text-align: center">77.2%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">75.8%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">25.1%(@[0.5-0.95]), 43.1%(@0.5)</td>
+      <td style="text-align: center">46 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SSD</td>
+      <td style="text-align: center">VGG16</td>
+      <td style="text-align: center">512x512</td>
+      <td style="text-align: center">79.8%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">78.5%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">28.8%(@[0.5-0.95]), 48.5%(@0.5)</td>
+      <td style="text-align: center">19 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SSD</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center">300x300</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">28.0%(@[0.5-0.95])</td>
+      <td style="text-align: center">16 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SSD</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center">512x512</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">31.2%(@[0.5-0.95])</td>
+      <td style="text-align: center">8 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">DSSD</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center">300x300</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">28.0%(@[0.5-0.95])</td>
+      <td style="text-align: center">8 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">DSSD</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center">500x500</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">33.2%(@[0.5-0.95])</td>
+      <td style="text-align: center">6 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ION</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">79.2%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">76.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">CRAFT</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">75.7%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">71.3%</td>
+      <td style="text-align: center">48.5%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">OHEM</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">78.9%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">76.3%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">25.5%(@[0.5-0.95]), 45.9%(@0.5)</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">R-FCN</td>
+      <td style="text-align: center">ResNet50</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">77.4%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">0.12sec(K40), 0.09sec(TitianX)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">R-FCN</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">79.5%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">0.17sec(K40), 0.12sec(TitianX)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">R-FCN(ms train)</td>
+      <td style="text-align: center">ResNet101</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">83.6%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">82.0%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">31.5%(@[0.5-0.95]), 53.2%(@0.5)</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PVANet 9.0</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">84.9%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">84.2%</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">750ms(CPU), 46ms(TitianX)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">RetinaNet</td>
+      <td style="text-align: center">ResNet101-FPN</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Light-Head R-CNN</td>
+      <td style="text-align: center">Xception*</td>
+      <td style="text-align: center">800/1200</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">31.5%@[0.5:0.95]</td>
+      <td style="text-align: center">95 fps</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Light-Head R-CNN</td>
+      <td style="text-align: center">Xception*</td>
+      <td style="text-align: center">700/1100</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">30.7%@[0.5:0.95]</td>
+      <td style="text-align: center">102 fps</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="papers">Papers</h1>
+
+<p><strong>Deep Neural Networks for Object Detection</strong></p>
+
+<ul>
+  <li>paper: <a href="http://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf">http://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf</a></li>
+</ul>
+
+<p><strong>OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1312.6229">http://arxiv.org/abs/1312.6229</a></li>
+  <li>github: <a href="https://github.com/sermanet/OverFeat">https://github.com/sermanet/OverFeat</a></li>
+  <li>code: <a href="http://cilvr.nyu.edu/doku.php?id=software:overfeat:start">http://cilvr.nyu.edu/doku.php?id=software:overfeat:start</a></li>
+</ul>
+
+<h2 id="r-cnn">R-CNN</h2>
+
+<p><strong>Rich feature hierarchies for accurate object detection and semantic segmentation</strong></p>
+
+<ul>
+  <li>intro: R-CNN</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1311.2524">http://arxiv.org/abs/1311.2524</a></li>
+  <li>supp: <a href="http://people.eecs.berkeley.edu/~rbg/papers/r-cnn-cvpr-supp.pdf">http://people.eecs.berkeley.edu/~rbg/papers/r-cnn-cvpr-supp.pdf</a></li>
+  <li>slides: <a href="http://www.image-net.org/challenges/LSVRC/2013/slides/r-cnn-ilsvrc2013-workshop.pdf">http://www.image-net.org/challenges/LSVRC/2013/slides/r-cnn-ilsvrc2013-workshop.pdf</a></li>
+  <li>slides: <a href="http://www.cs.berkeley.edu/~rbg/slides/rcnn-cvpr14-slides.pdf">http://www.cs.berkeley.edu/~rbg/slides/rcnn-cvpr14-slides.pdf</a></li>
+  <li>github: <a href="https://github.com/rbgirshick/rcnn">https://github.com/rbgirshick/rcnn</a></li>
+  <li>notes: <a href="http://zhangliliang.com/2014/07/23/paper-note-rcnn/">http://zhangliliang.com/2014/07/23/paper-note-rcnn/</a></li>
+  <li>caffe-pr(“Make R-CNN the Caffe detection example”): <a href="https://github.com/BVLC/caffe/pull/482">https://github.com/BVLC/caffe/pull/482</a></li>
+</ul>
+
+<h2 id="fast-r-cnn">Fast R-CNN</h2>
+
+<p><strong>Fast R-CNN</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1504.08083">http://arxiv.org/abs/1504.08083</a></li>
+  <li>slides: <a href="http://tutorial.caffe.berkeleyvision.org/caffe-cvpr15-detection.pdf">http://tutorial.caffe.berkeleyvision.org/caffe-cvpr15-detection.pdf</a></li>
+  <li>github: <a href="https://github.com/rbgirshick/fast-rcnn">https://github.com/rbgirshick/fast-rcnn</a></li>
+  <li>github(COCO-branch): <a href="https://github.com/rbgirshick/fast-rcnn/tree/coco">https://github.com/rbgirshick/fast-rcnn/tree/coco</a></li>
+  <li>webcam demo: <a href="https://github.com/rbgirshick/fast-rcnn/pull/29">https://github.com/rbgirshick/fast-rcnn/pull/29</a></li>
+  <li>notes: <a href="http://zhangliliang.com/2015/05/17/paper-note-fast-rcnn/">http://zhangliliang.com/2015/05/17/paper-note-fast-rcnn/</a></li>
+  <li>notes: <a href="http://blog.csdn.net/linj_m/article/details/48930179">http://blog.csdn.net/linj_m/article/details/48930179</a></li>
+  <li>github(“Fast R-CNN in MXNet”): <a href="https://github.com/precedenceguo/mx-rcnn">https://github.com/precedenceguo/mx-rcnn</a></li>
+  <li>github: <a href="https://github.com/mahyarnajibi/fast-rcnn-torch">https://github.com/mahyarnajibi/fast-rcnn-torch</a></li>
+  <li>github: <a href="https://github.com/apple2373/chainer-simple-fast-rnn">https://github.com/apple2373/chainer-simple-fast-rnn</a></li>
+  <li>github: <a href="https://github.com/zplizzi/tensorflow-fast-rcnn">https://github.com/zplizzi/tensorflow-fast-rcnn</a></li>
+</ul>
+
+<p><strong>A-Fast-RCNN: Hard Positive Generation via Adversary for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.03414">https://arxiv.org/abs/1704.03414</a></li>
+  <li>paper: <a href="http://abhinavsh.info/papers/pdfs/adversarial_object_detection.pdf">http://abhinavsh.info/papers/pdfs/adversarial_object_detection.pdf</a></li>
+  <li>github(Caffe): <a href="https://github.com/xiaolonw/adversarial-frcnn">https://github.com/xiaolonw/adversarial-frcnn</a></li>
+</ul>
+
+<h2 id="faster-r-cnn">Faster R-CNN</h2>
+
+<p><strong>Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</strong></p>
+
+<ul>
+  <li>intro: NIPS 2015</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1506.01497">http://arxiv.org/abs/1506.01497</a></li>
+  <li>gitxiv: <a href="http://www.gitxiv.com/posts/8pfpcvefDYn2gSgXk/faster-r-cnn-towards-real-time-object-detection-with-region">http://www.gitxiv.com/posts/8pfpcvefDYn2gSgXk/faster-r-cnn-towards-real-time-object-detection-with-region</a></li>
+  <li>slides: <a href="http://web.cs.hacettepe.edu.tr/~aykut/classes/spring2016/bil722/slides/w05-FasterR-CNN.pdf">http://web.cs.hacettepe.edu.tr/~aykut/classes/spring2016/bil722/slides/w05-FasterR-CNN.pdf</a></li>
+  <li>github(official, Matlab): <a href="https://github.com/ShaoqingRen/faster_rcnn">https://github.com/ShaoqingRen/faster_rcnn</a></li>
+  <li>github: <a href="https://github.com/rbgirshick/py-faster-rcnn">https://github.com/rbgirshick/py-faster-rcnn</a></li>
+  <li>github(MXNet): <a href="https://github.com/msracver/Deformable-ConvNets/tree/master/faster_rcnn">https://github.com/msracver/Deformable-ConvNets/tree/master/faster_rcnn</a></li>
+  <li>github: <a href="https://github.com//jwyang/faster-rcnn.pytorch">https://github.com//jwyang/faster-rcnn.pytorch</a></li>
+  <li>github: <a href="https://github.com/mitmul/chainer-faster-rcnn">https://github.com/mitmul/chainer-faster-rcnn</a></li>
+  <li>github: <a href="https://github.com/andreaskoepf/faster-rcnn.torch">https://github.com/andreaskoepf/faster-rcnn.torch</a></li>
+  <li>github: <a href="https://github.com/ruotianluo/Faster-RCNN-Densecap-torch">https://github.com/ruotianluo/Faster-RCNN-Densecap-torch</a></li>
+  <li>github: <a href="https://github.com/smallcorgi/Faster-RCNN_TF">https://github.com/smallcorgi/Faster-RCNN_TF</a></li>
+  <li>github: <a href="https://github.com/CharlesShang/TFFRCNN">https://github.com/CharlesShang/TFFRCNN</a></li>
+  <li>github(C++ demo): <a href="https://github.com/YihangLou/FasterRCNN-Encapsulation-Cplusplus">https://github.com/YihangLou/FasterRCNN-Encapsulation-Cplusplus</a></li>
+  <li>github: <a href="https://github.com/yhenon/keras-frcnn">https://github.com/yhenon/keras-frcnn</a></li>
+  <li>github: <a href="https://github.com/Eniac-Xie/faster-rcnn-resnet">https://github.com/Eniac-Xie/faster-rcnn-resnet</a></li>
+  <li>github(C++): <a href="https://github.com/D-X-Y/caffe-faster-rcnn/tree/dev">https://github.com/D-X-Y/caffe-faster-rcnn/tree/dev</a></li>
+</ul>
+
+<p><strong>R-CNN minus R</strong></p>
+
+<ul>
+  <li>intro: BMVC 2015</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1506.06981">http://arxiv.org/abs/1506.06981</a></li>
+</ul>
+
+<p><strong>Faster R-CNN in MXNet with distributed implementation and data parallelization</strong></p>
+
+<ul>
+  <li>github: <a href="https://github.com/dmlc/mxnet/tree/master/example/rcnn">https://github.com/dmlc/mxnet/tree/master/example/rcnn</a></li>
+</ul>
+
+<p><strong>Contextual Priming and Feedback for Faster R-CNN</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016. Carnegie Mellon University</li>
+  <li>paper: <a href="http://abhinavsh.info/context_priming_feedback.pdf">http://abhinavsh.info/context_priming_feedback.pdf</a></li>
+  <li>poster: <a href="http://www.eccv2016.org/files/posters/P-1A-20.pdf">http://www.eccv2016.org/files/posters/P-1A-20.pdf</a></li>
+</ul>
+
+<p><strong>An Implementation of Faster RCNN with Study for Region Sampling</strong></p>
+
+<ul>
+  <li>intro: Technical Report, 3 pages. CMU</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.02138">https://arxiv.org/abs/1702.02138</a></li>
+  <li>github: <a href="https://github.com/endernewton/tf-faster-rcnn">https://github.com/endernewton/tf-faster-rcnn</a></li>
+</ul>
+
+<p><strong>Interpretable R-CNN</strong></p>
+
+<ul>
+  <li>intro: North Carolina State University &amp; Alibaba</li>
+  <li>keywords: AND-OR Graph (AOG)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.05226">https://arxiv.org/abs/1711.05226</a></li>
+</ul>
+
+<h2 id="light-head-r-cnn">Light-Head R-CNN</h2>
+
+<p><strong>Light-Head R-CNN: In Defense of Two-Stage Object Detector</strong></p>
+
+<ul>
+  <li>intro: Tsinghua University &amp; Megvii Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.07264">https://arxiv.org/abs/1711.07264</a></li>
+  <li>github(official, Tensorflow): <a href="https://github.com/zengarden/light_head_rcnn">https://github.com/zengarden/light_head_rcnn</a></li>
+  <li>github: <a href="https://github.com/terrychenism/Deformable-ConvNets/blob/master/rfcn/symbols/resnet_v1_101_rfcn_light.py#L784">https://github.com/terrychenism/Deformable-ConvNets/blob/master/rfcn/symbols/resnet_v1_101_rfcn_light.py#L784</a></li>
+</ul>
+
+<h2 id="cascade-r-cnn">Cascade R-CNN</h2>
+
+<p><strong>Cascade R-CNN: Delving into High Quality Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018. UC San Diego</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.00726">https://arxiv.org/abs/1712.00726</a></li>
+  <li>github(Caffe, official): <a href="https://github.com/zhaoweicai/cascade-rcnn">https://github.com/zhaoweicai/cascade-rcnn</a></li>
+</ul>
+
+<h2 id="multibox">MultiBox</h2>
+
+<p><strong>Scalable Object Detection using Deep Neural Networks</strong></p>
+
+<ul>
+  <li>intro: first MultiBox. Train a CNN to predict Region of Interest.</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1312.2249">http://arxiv.org/abs/1312.2249</a></li>
+  <li>github: <a href="https://github.com/google/multibox">https://github.com/google/multibox</a></li>
+  <li>blog: <a href="https://research.googleblog.com/2014/12/high-quality-object-detection-at-scale.html">https://research.googleblog.com/2014/12/high-quality-object-detection-at-scale.html</a></li>
+</ul>
+
+<p><strong>Scalable, High-Quality Object Detection</strong></p>
+
+<ul>
+  <li>intro: second MultiBox</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1412.1441">http://arxiv.org/abs/1412.1441</a></li>
+  <li>github: <a href="https://github.com/google/multibox">https://github.com/google/multibox</a></li>
+</ul>
+
+<h2 id="spp-net">SPP-Net</h2>
+
+<p><strong>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition</strong></p>
+
+<ul>
+  <li>intro: ECCV 2014 / TPAMI 2015</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1406.4729">http://arxiv.org/abs/1406.4729</a></li>
+  <li>github: <a href="https://github.com/ShaoqingRen/SPP_net">https://github.com/ShaoqingRen/SPP_net</a></li>
+  <li>notes: <a href="http://zhangliliang.com/2014/09/13/paper-note-sppnet/">http://zhangliliang.com/2014/09/13/paper-note-sppnet/</a></li>
+</ul>
+
+<p><strong>DeepID-Net: Deformable Deep Convolutional Neural Networks for Object Detection</strong></p>
+
+<ul>
+  <li>intro: PAMI 2016</li>
+  <li>intro: an extension of R-CNN. box pre-training, cascade on region proposals, deformation layers and context representations</li>
+  <li>project page: <a href="http://www.ee.cuhk.edu.hk/%CB%9Cwlouyang/projects/imagenetDeepId/index.html">http://www.ee.cuhk.edu.hk/%CB%9Cwlouyang/projects/imagenetDeepId/index.html</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1412.5661">http://arxiv.org/abs/1412.5661</a></li>
+</ul>
+
+<p><strong>Object Detectors Emerge in Deep Scene CNNs</strong></p>
+
+<ul>
+  <li>intro: ICLR 2015</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1412.6856">http://arxiv.org/abs/1412.6856</a></li>
+  <li>paper: <a href="https://www.robots.ox.ac.uk/~vgg/rg/papers/zhou_iclr15.pdf">https://www.robots.ox.ac.uk/~vgg/rg/papers/zhou_iclr15.pdf</a></li>
+  <li>paper: <a href="https://people.csail.mit.edu/khosla/papers/iclr2015_zhou.pdf">https://people.csail.mit.edu/khosla/papers/iclr2015_zhou.pdf</a></li>
+  <li>slides: <a href="http://places.csail.mit.edu/slide_iclr2015.pdf">http://places.csail.mit.edu/slide_iclr2015.pdf</a></li>
+</ul>
+
+<p><strong>segDeepM: Exploiting Segmentation and Context in Deep Neural Networks for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2015</li>
+  <li>project(code+data): <a href="https://www.cs.toronto.edu/~yukun/segdeepm.html">https://www.cs.toronto.edu/~yukun/segdeepm.html</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1502.04275">https://arxiv.org/abs/1502.04275</a></li>
+  <li>github: <a href="https://github.com/YknZhu/segDeepM">https://github.com/YknZhu/segDeepM</a></li>
+</ul>
+
+<p><strong>Object Detection Networks on Convolutional Feature Maps</strong></p>
+
+<ul>
+  <li>intro: TPAMI 2015</li>
+  <li>keywords: NoC</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1504.06066">http://arxiv.org/abs/1504.06066</a></li>
+</ul>
+
+<p><strong>Improving Object Detection with Deep Convolutional Networks via Bayesian Optimization and Structured Prediction</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1504.03293">http://arxiv.org/abs/1504.03293</a></li>
+  <li>slides: <a href="http://www.ytzhang.net/files/publications/2015-cvpr-det-slides.pdf">http://www.ytzhang.net/files/publications/2015-cvpr-det-slides.pdf</a></li>
+  <li>github: <a href="https://github.com/YutingZhang/fgs-obj">https://github.com/YutingZhang/fgs-obj</a></li>
+</ul>
+
+<p><strong>DeepBox: Learning Objectness with Convolutional Networks</strong></p>
+
+<ul>
+  <li>keywords: DeepBox</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1505.02146">http://arxiv.org/abs/1505.02146</a></li>
+  <li>github: <a href="https://github.com/weichengkuo/DeepBox">https://github.com/weichengkuo/DeepBox</a></li>
+</ul>
+
+<h2 id="mr-cnn">MR-CNN</h2>
+
+<p><strong>Object detection via a multi-region &amp; semantic segmentation-aware CNN model</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015. MR-CNN</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1505.01749">http://arxiv.org/abs/1505.01749</a></li>
+  <li>github: <a href="https://github.com/gidariss/mrcnn-object-detection">https://github.com/gidariss/mrcnn-object-detection</a></li>
+  <li>notes: <a href="http://zhangliliang.com/2015/05/17/paper-note-ms-cnn/">http://zhangliliang.com/2015/05/17/paper-note-ms-cnn/</a></li>
+  <li>notes: <a href="http://blog.cvmarcher.com/posts/2015/05/17/multi-region-semantic-segmentation-aware-cnn/">http://blog.cvmarcher.com/posts/2015/05/17/multi-region-semantic-segmentation-aware-cnn/</a></li>
+</ul>
+
+<h2 id="yolo">YOLO</h2>
+
+<p><strong>You Only Look Once: Unified, Real-Time Object Detection</strong></p>
+
+<p><img src="https://camo.githubusercontent.com/e69d4118b20a42de4e23b9549f9a6ec6dbbb0814/687474703a2f2f706a7265646469652e636f6d2f6d656469612f66696c65732f6461726b6e65742d626c61636b2d736d616c6c2e706e67" alt="" /></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1506.02640">http://arxiv.org/abs/1506.02640</a></li>
+  <li>code: <a href="http://pjreddie.com/darknet/yolo/">http://pjreddie.com/darknet/yolo/</a></li>
+  <li>github: <a href="https://github.com/pjreddie/darknet">https://github.com/pjreddie/darknet</a></li>
+  <li>blog: <a href="https://pjreddie.com/publications/yolo/">https://pjreddie.com/publications/yolo/</a></li>
+  <li>slides: <a href="https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.p">https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.p</a></li>
+  <li>reddit: <a href="https://www.reddit.com/r/MachineLearning/comments/3a3m0o/realtime_object_detection_with_yolo/">https://www.reddit.com/r/MachineLearning/comments/3a3m0o/realtime_object_detection_with_yolo/</a></li>
+  <li>github: <a href="https://github.com/gliese581gg/YOLO_tensorflow">https://github.com/gliese581gg/YOLO_tensorflow</a></li>
+  <li>github: <a href="https://github.com/xingwangsfu/caffe-yolo">https://github.com/xingwangsfu/caffe-yolo</a></li>
+  <li>github: <a href="https://github.com/frankzhangrui/Darknet-Yolo">https://github.com/frankzhangrui/Darknet-Yolo</a></li>
+  <li>github: <a href="https://github.com/BriSkyHekun/py-darknet-yolo">https://github.com/BriSkyHekun/py-darknet-yolo</a></li>
+  <li>github: <a href="https://github.com/tommy-qichang/yolo.torch">https://github.com/tommy-qichang/yolo.torch</a></li>
+  <li>github: <a href="https://github.com/frischzenger/yolo-windows">https://github.com/frischzenger/yolo-windows</a></li>
+  <li>github: <a href="https://github.com/AlexeyAB/yolo-windows">https://github.com/AlexeyAB/yolo-windows</a></li>
+  <li>github: <a href="https://github.com/nilboy/tensorflow-yolo">https://github.com/nilboy/tensorflow-yolo</a></li>
+</ul>
+
+<p><strong>darkflow - translate darknet to tensorflow. Load trained weights, retrain/fine-tune them using tensorflow, export constant graph def to C++</strong></p>
+
+<ul>
+  <li>blog: <a href="https://thtrieu.github.io/notes/yolo-tensorflow-graph-buffer-cpp">https://thtrieu.github.io/notes/yolo-tensorflow-graph-buffer-cpp</a></li>
+  <li>github: <a href="https://github.com/thtrieu/darkflow">https://github.com/thtrieu/darkflow</a></li>
+</ul>
+
+<p><strong>Start Training YOLO with Our Own Data</strong></p>
+
+<p><img src="http://guanghan.info/blog/en/wp-content/uploads/2015/12/images-40.jpg" alt="" /></p>
+
+<ul>
+  <li>intro: train with customized data and class numbers/labels. Linux / Windows version for darknet.</li>
+  <li>blog: <a href="http://guanghan.info/blog/en/my-works/train-yolo/">http://guanghan.info/blog/en/my-works/train-yolo/</a></li>
+  <li>github: <a href="https://github.com/Guanghan/darknet">https://github.com/Guanghan/darknet</a></li>
+</ul>
+
+<p><strong>YOLO: Core ML versus MPSNNGraph</strong></p>
+
+<ul>
+  <li>intro: Tiny YOLO for iOS implemented using CoreML but also using the new MPS graph API.</li>
+  <li>blog: <a href="http://machinethink.net/blog/yolo-coreml-versus-mps-graph/">http://machinethink.net/blog/yolo-coreml-versus-mps-graph/</a></li>
+  <li>github: <a href="https://github.com/hollance/YOLO-CoreML-MPSNNGraph">https://github.com/hollance/YOLO-CoreML-MPSNNGraph</a></li>
+</ul>
+
+<p><strong>TensorFlow YOLO object detection on Android</strong></p>
+
+<ul>
+  <li>intro: Real-time object detection on Android using the YOLO network with TensorFlow</li>
+  <li>github: <a href="https://github.com/natanielruiz/android-yolo">https://github.com/natanielruiz/android-yolo</a></li>
+</ul>
+
+<p><strong>Computer Vision in iOS – Object Detection</strong></p>
+
+<ul>
+  <li>blog: <a href="https://sriraghu.com/2017/07/12/computer-vision-in-ios-object-detection/">https://sriraghu.com/2017/07/12/computer-vision-in-ios-object-detection/</a></li>
+  <li>github:<a href="https://github.com/r4ghu/iOS-CoreML-Yolo">https://github.com/r4ghu/iOS-CoreML-Yolo</a></li>
+</ul>
+
+<h2 id="yolov2">YOLOv2</h2>
+
+<p><strong>YOLO9000: Better, Faster, Stronger</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.08242">https://arxiv.org/abs/1612.08242</a></li>
+  <li>code: <a href="http://pjreddie.com/yolo9000/">http://pjreddie.com/yolo9000/</a></li>
+  <li>github(Chainer): <a href="https://github.com/leetenki/YOLOv2">https://github.com/leetenki/YOLOv2</a></li>
+  <li>github(Keras): <a href="https://github.com/allanzelener/YAD2K">https://github.com/allanzelener/YAD2K</a></li>
+  <li>github(PyTorch): <a href="https://github.com/longcw/yolo2-pytorch">https://github.com/longcw/yolo2-pytorch</a></li>
+  <li>github(Tensorflow): <a href="https://github.com/hizhangp/yolo_tensorflow">https://github.com/hizhangp/yolo_tensorflow</a></li>
+  <li>github(Windows): <a href="https://github.com/AlexeyAB/darknet">https://github.com/AlexeyAB/darknet</a></li>
+  <li>github: <a href="https://github.com/choasUp/caffe-yolo9000">https://github.com/choasUp/caffe-yolo9000</a></li>
+  <li>github: <a href="https://github.com/philipperemy/yolo-9000">https://github.com/philipperemy/yolo-9000</a></li>
+</ul>
+
+<p><strong>darknet_scripts</strong></p>
+
+<ul>
+  <li>intro: Auxilary scripts to work with (YOLO) darknet deep learning famework. AKA -&gt; How to generate YOLO anchors?</li>
+  <li>github: <a href="https://github.com/Jumabek/darknet_scripts">https://github.com/Jumabek/darknet_scripts</a></li>
+</ul>
+
+<p><strong>Yolo_mark: GUI for marking bounded boxes of objects in images for training Yolo v2</strong></p>
+
+<ul>
+  <li>github: <a href="https://github.com/AlexeyAB/Yolo_mark">https://github.com/AlexeyAB/Yolo_mark</a></li>
+</ul>
+
+<p><strong>LightNet: Bringing pjreddie’s DarkNet out of the shadows</strong></p>
+
+<p><a href="https://github.com//explosion/lightnet">https://github.com//explosion/lightnet</a></p>
+
+<p><strong>YOLO v2 Bounding Box Tool</strong></p>
+
+<ul>
+  <li>intro: Bounding box labeler tool to generate the training data in the format YOLO v2 requires.</li>
+  <li>github: <a href="https://github.com/Cartucho/yolo-boundingbox-labeler-GUI">https://github.com/Cartucho/yolo-boundingbox-labeler-GUI</a></li>
+</ul>
+
+<h2 id="yolov3">YOLOv3</h2>
+
+<p><strong>YOLOv3: An Incremental Improvement</strong></p>
+
+<ul>
+  <li>project page: <a href="https://pjreddie.com/darknet/yolo/">https://pjreddie.com/darknet/yolo/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.02767">https://arxiv.org/abs/1804.02767</a></li>
+</ul>
+
+<hr />
+
+<p><strong>AttentionNet: Aggregating Weak Directions for Accurate Object Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015</li>
+  <li>intro: state-of-the-art performance of 65% (AP) on PASCAL VOC 2007/2012 human detection task</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1506.07704">http://arxiv.org/abs/1506.07704</a></li>
+  <li>slides: <a href="https://www.robots.ox.ac.uk/~vgg/rg/slides/AttentionNet.pdf">https://www.robots.ox.ac.uk/~vgg/rg/slides/AttentionNet.pdf</a></li>
+  <li>slides: <a href="http://image-net.org/challenges/talks/lunit-kaist-slide.pdf">http://image-net.org/challenges/talks/lunit-kaist-slide.pdf</a></li>
+</ul>
+
+<h2 id="densebox">DenseBox</h2>
+
+<p><strong>DenseBox: Unifying Landmark Localization with End to End Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1509.04874">http://arxiv.org/abs/1509.04874</a></li>
+  <li>demo: <a href="http://pan.baidu.com/s/1mgoWWsS">http://pan.baidu.com/s/1mgoWWsS</a></li>
+  <li>KITTI result: <a href="http://www.cvlibs.net/datasets/kitti/eval_object.php">http://www.cvlibs.net/datasets/kitti/eval_object.php</a></li>
+</ul>
+
+<h2 id="ssd">SSD</h2>
+
+<p><strong>SSD: Single Shot MultiBox Detector</strong></p>
+
+<p><img src="https://camo.githubusercontent.com/ad9b147ed3a5f48ffb7c3540711c15aa04ce49c6/687474703a2f2f7777772e63732e756e632e6564752f7e776c69752f7061706572732f7373642e706e67" alt="" /></p>
+
+<ul>
+  <li>intro: ECCV 2016 Oral</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1512.02325">http://arxiv.org/abs/1512.02325</a></li>
+  <li>paper: <a href="http://www.cs.unc.edu/~wliu/papers/ssd.pdf">http://www.cs.unc.edu/~wliu/papers/ssd.pdf</a></li>
+  <li>slides: <a href="http://www.cs.unc.edu/%7Ewliu/papers/ssd_eccv2016_slide.pdf">http://www.cs.unc.edu/%7Ewliu/papers/ssd_eccv2016_slide.pdf</a></li>
+  <li>github(Official): <a href="https://github.com/weiliu89/caffe/tree/ssd">https://github.com/weiliu89/caffe/tree/ssd</a></li>
+  <li>video: <a href="http://weibo.com/p/2304447a2326da963254c963c97fb05dd3a973">http://weibo.com/p/2304447a2326da963254c963c97fb05dd3a973</a></li>
+  <li>github: <a href="https://github.com/zhreshold/mxnet-ssd">https://github.com/zhreshold/mxnet-ssd</a></li>
+  <li>github: <a href="https://github.com/zhreshold/mxnet-ssd.cpp">https://github.com/zhreshold/mxnet-ssd.cpp</a></li>
+  <li>github: <a href="https://github.com/rykov8/ssd_keras">https://github.com/rykov8/ssd_keras</a></li>
+  <li>github: <a href="https://github.com/balancap/SSD-Tensorflow">https://github.com/balancap/SSD-Tensorflow</a></li>
+  <li>github: <a href="https://github.com/amdegroot/ssd.pytorch">https://github.com/amdegroot/ssd.pytorch</a></li>
+  <li>github(Caffe): <a href="https://github.com/chuanqi305/MobileNet-SSD">https://github.com/chuanqi305/MobileNet-SSD</a></li>
+</ul>
+
+<p><strong>What’s the diffience in performance between this new code you pushed and the previous code? #327</strong></p>
+
+<p><a href="https://github.com/weiliu89/caffe/issues/327">https://github.com/weiliu89/caffe/issues/327</a></p>
+
+<h2 id="dssd">DSSD</h2>
+
+<p><strong>DSSD : Deconvolutional Single Shot Detector</strong></p>
+
+<ul>
+  <li>intro: UNC Chapel Hill &amp; Amazon Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1701.06659">https://arxiv.org/abs/1701.06659</a></li>
+  <li>github: <a href="https://github.com/chengyangfu/caffe/tree/dssd">https://github.com/chengyangfu/caffe/tree/dssd</a></li>
+  <li>github: <a href="https://github.com/MTCloudVision/mxnet-dssd">https://github.com/MTCloudVision/mxnet-dssd</a></li>
+  <li>demo: <a href="http://120.52.72.53/www.cs.unc.edu/c3pr90ntc0td/~cyfu/dssd_lalaland.mp4">http://120.52.72.53/www.cs.unc.edu/c3pr90ntc0td/~cyfu/dssd_lalaland.mp4</a></li>
+</ul>
+
+<p><strong>Enhancement of SSD by concatenating feature maps for object detection</strong></p>
+
+<ul>
+  <li>intro: rainbow SSD (R-SSD)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1705.09587">https://arxiv.org/abs/1705.09587</a></li>
+</ul>
+
+<p><strong>Context-aware Single-Shot Detector</strong></p>
+
+<ul>
+  <li>keywords: CSSD, DiCSSD, DeCSSD, effective receptive fields (ERFs),  theoretical receptive fields (TRFs)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.08682">https://arxiv.org/abs/1707.08682</a></li>
+</ul>
+
+<p><strong>Feature-Fused SSD: Fast Detection for Small Objects</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.05054">https://arxiv.org/abs/1709.05054</a></p>
+
+<h2 id="fssd">FSSD</h2>
+
+<p><strong>FSSD: Feature Fusion Single Shot Multibox Detector</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.00960">https://arxiv.org/abs/1712.00960</a></p>
+
+<p><strong>Weaving Multi-scale Context for Single Shot Detector</strong></p>
+
+<ul>
+  <li>intro: WeaveNet</li>
+  <li>keywords: fuse multi-scale information</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.03149">https://arxiv.org/abs/1712.03149</a></li>
+</ul>
+
+<h2 id="essd">ESSD</h2>
+
+<p><strong>Extend the shallow part of Single Shot MultiBox Detector via Convolutional Neural Network</strong></p>
+
+<p><a href="https://arxiv.org/abs/1801.05918">https://arxiv.org/abs/1801.05918</a></p>
+
+<p><strong>Tiny SSD: A Tiny Single-shot Detection Deep Convolutional Neural Network for Real-time Embedded Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1802.06488">https://arxiv.org/abs/1802.06488</a></p>
+
+<p><strong>MDSSD: Multi-scale Deconvolutional Single Shot Detector for small objects</strong></p>
+
+<ul>
+  <li>intro: Zhengzhou University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1805.07009">https://arxiv.org/abs/1805.07009</a></li>
+</ul>
+
+<h2 id="inside-outside-net-ion">Inside-Outside Net (ION)</h2>
+
+<p><strong>Inside-Outside Net: Detecting Objects in Context with Skip Pooling and Recurrent Neural Networks</strong></p>
+
+<ul>
+  <li>intro: “0.8s per image on a Titan X GPU (excluding proposal generation) without two-stage bounding-box regression
+and 1.15s per image with it”.</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1512.04143">http://arxiv.org/abs/1512.04143</a></li>
+  <li>slides: <a href="http://www.seanbell.ca/tmp/ion-coco-talk-bell2015.pdf">http://www.seanbell.ca/tmp/ion-coco-talk-bell2015.pdf</a></li>
+  <li>coco-leaderboard: <a href="http://mscoco.org/dataset/#detections-leaderboard">http://mscoco.org/dataset/#detections-leaderboard</a></li>
+</ul>
+
+<p><strong>Adaptive Object Detection Using Adjacency and Zoom Prediction</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016. AZ-Net</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1512.07711">http://arxiv.org/abs/1512.07711</a></li>
+  <li>github: <a href="https://github.com/luyongxi/az-net">https://github.com/luyongxi/az-net</a></li>
+  <li>youtube: <a href="https://www.youtube.com/watch?v=YmFtuNwxaNM">https://www.youtube.com/watch?v=YmFtuNwxaNM</a></li>
+</ul>
+
+<p><strong>G-CNN: an Iterative Grid Based Object Detector</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1512.07729">http://arxiv.org/abs/1512.07729</a></li>
+</ul>
+
+<p><strong>Factors in Finetuning Deep Model for object detection</strong></p>
+
+<p><strong>Factors in Finetuning Deep Model for Object Detection with Long-tail Distribution</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016.rank 3rd for provided data and 2nd for external data on ILSVRC 2015 object detection</li>
+  <li>project page: <a href="http://www.ee.cuhk.edu.hk/~wlouyang/projects/ImageNetFactors/CVPR16.html">http://www.ee.cuhk.edu.hk/~wlouyang/projects/ImageNetFactors/CVPR16.html</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1601.05150">http://arxiv.org/abs/1601.05150</a></li>
+</ul>
+
+<p><strong>We don’t need no bounding-boxes: Training object class detectors using only human verification</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1602.08405">http://arxiv.org/abs/1602.08405</a></li>
+</ul>
+
+<p><strong>HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.00600">http://arxiv.org/abs/1604.00600</a></li>
+</ul>
+
+<p><strong>A MultiPath Network for Object Detection</strong></p>
+
+<ul>
+  <li>intro: BMVC 2016. Facebook AI Research (FAIR)</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.02135">http://arxiv.org/abs/1604.02135</a></li>
+  <li>github: <a href="https://github.com/facebookresearch/multipathnet">https://github.com/facebookresearch/multipathnet</a></li>
+</ul>
+
+<h2 id="craft">CRAFT</h2>
+
+<p><strong>CRAFT Objects from Images</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016. Cascade Region-proposal-network And FasT-rcnn. an extension of Faster R-CNN</li>
+  <li>project page: <a href="http://byangderek.github.io/projects/craft.html">http://byangderek.github.io/projects/craft.html</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1604.03239">https://arxiv.org/abs/1604.03239</a></li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Yang_CRAFT_Objects_From_CVPR_2016_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Yang_CRAFT_Objects_From_CVPR_2016_paper.pdf</a></li>
+  <li>github: <a href="https://github.com/byangderek/CRAFT">https://github.com/byangderek/CRAFT</a></li>
+</ul>
+
+<h2 id="ohem">OHEM</h2>
+
+<p><strong>Training Region-based Object Detectors with Online Hard Example Mining</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016 Oral. Online hard example mining (OHEM)</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.03540">http://arxiv.org/abs/1604.03540</a></li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shrivastava_Training_Region-Based_Object_CVPR_2016_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Shrivastava_Training_Region-Based_Object_CVPR_2016_paper.pdf</a></li>
+  <li>github(Official): <a href="https://github.com/abhi2610/ohem">https://github.com/abhi2610/ohem</a></li>
+  <li>author page: <a href="http://abhinav-shrivastava.info/">http://abhinav-shrivastava.info/</a></li>
+</ul>
+
+<p><strong>S-OHEM: Stratified Online Hard Example Mining for Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1705.02233">https://arxiv.org/abs/1705.02233</a></p>
+
+<hr />
+
+<p><strong>Exploit All the Layers: Fast and Accurate CNN Object Detector with Scale Dependent Pooling and Cascaded Rejection Classifiers</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>keywords: scale-dependent pooling  (SDP), cascaded rejection classifiers (CRC)</li>
+  <li>paper: <a href="http://www-personal.umich.edu/~wgchoi/SDP-CRC_camready.pdf">http://www-personal.umich.edu/~wgchoi/SDP-CRC_camready.pdf</a></li>
+</ul>
+
+<h2 id="r-fcn">R-FCN</h2>
+
+<p><strong>R-FCN: Object Detection via Region-based Fully Convolutional Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1605.06409">http://arxiv.org/abs/1605.06409</a></li>
+  <li>github: <a href="https://github.com/daijifeng001/R-FCN">https://github.com/daijifeng001/R-FCN</a></li>
+  <li>github(MXNet): <a href="https://github.com/msracver/Deformable-ConvNets/tree/master/rfcn">https://github.com/msracver/Deformable-ConvNets/tree/master/rfcn</a></li>
+  <li>github: <a href="https://github.com/Orpine/py-R-FCN">https://github.com/Orpine/py-R-FCN</a></li>
+  <li>github: <a href="https://github.com/PureDiors/pytorch_RFCN">https://github.com/PureDiors/pytorch_RFCN</a></li>
+  <li>github: <a href="https://github.com/bharatsingh430/py-R-FCN-multiGPU">https://github.com/bharatsingh430/py-R-FCN-multiGPU</a></li>
+  <li>github: <a href="https://github.com/xdever/RFCN-tensorflow">https://github.com/xdever/RFCN-tensorflow</a></li>
+</ul>
+
+<p><strong>R-FCN-3000 at 30fps: Decoupling Detection and Classification</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.01802">https://arxiv.org/abs/1712.01802</a></p>
+
+<p><strong>Recycle deep features for better object detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.05066">http://arxiv.org/abs/1607.05066</a></li>
+</ul>
+
+<h2 id="ms-cnn">MS-CNN</h2>
+
+<p><strong>A Unified Multi-scale Deep Convolutional Neural Network for Fast Object Detection</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>intro: 640×480: 15 fps, 960×720: 8 fps</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.07155">http://arxiv.org/abs/1607.07155</a></li>
+  <li>github: <a href="https://github.com/zhaoweicai/mscnn">https://github.com/zhaoweicai/mscnn</a></li>
+  <li>poster: <a href="http://www.eccv2016.org/files/posters/P-2B-38.pdf">http://www.eccv2016.org/files/posters/P-2B-38.pdf</a></li>
+</ul>
+
+<p><strong>Multi-stage Object Detection with Group Recursive Learning</strong></p>
+
+<ul>
+  <li>intro: VOC2007: 78.6%, VOC2012: 74.9%</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.05159">http://arxiv.org/abs/1608.05159</a></li>
+</ul>
+
+<p><strong>Subcategory-aware Convolutional Neural Networks for Object Proposals and Detection</strong></p>
+
+<ul>
+  <li>intro: WACV 2017. SubCNN</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.04693">http://arxiv.org/abs/1604.04693</a></li>
+  <li>github: <a href="https://github.com/tanshen/SubCNN">https://github.com/tanshen/SubCNN</a></li>
+</ul>
+
+<h2 id="pvanet">PVANET</h2>
+
+<p><strong>PVANet: Lightweight Deep Neural Networks for Real-time Object Detection</strong></p>
+
+<ul>
+  <li>intro: Presented at NIPS 2016 Workshop on Efficient Methods for Deep Neural Networks (EMDNN). 
+Continuation of <a href="https://arxiv.org/abs/1608.08021">arXiv:1608.08021</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.08588">https://arxiv.org/abs/1611.08588</a></li>
+  <li>github: <a href="https://github.com/sanghoon/pva-faster-rcnn">https://github.com/sanghoon/pva-faster-rcnn</a></li>
+  <li>leaderboard(PVANet 9.0): <a href="http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&amp;compid=4">http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&amp;compid=4</a></li>
+</ul>
+
+<h2 id="gbd-net">GBD-Net</h2>
+
+<p><strong>Gated Bi-directional CNN for Object Detection</strong></p>
+
+<ul>
+  <li>intro: The Chinese University of Hong Kong &amp; Sensetime Group Limited</li>
+  <li>paper: <a href="http://link.springer.com/chapter/10.1007/978-3-319-46478-7_22">http://link.springer.com/chapter/10.1007/978-3-319-46478-7_22</a></li>
+  <li>mirror: <a href="https://pan.baidu.com/s/1dFohO7v">https://pan.baidu.com/s/1dFohO7v</a></li>
+</ul>
+
+<p><strong>Crafting GBD-Net for Object Detection</strong></p>
+
+<ul>
+  <li>intro: winner of the ImageNet object detection challenge of 2016. CUImage and CUVideo</li>
+  <li>intro: gated bi-directional CNN (GBD-Net)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.02579">https://arxiv.org/abs/1610.02579</a></li>
+  <li>github: <a href="https://github.com/craftGBD/craftGBD">https://github.com/craftGBD/craftGBD</a></li>
+</ul>
+
+<p><strong>StuffNet: Using ‘Stuff’ to Improve Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.05861">https://arxiv.org/abs/1610.05861</a></li>
+</ul>
+
+<p><strong>Generalized Haar Filter based Deep Networks for Real-Time Object Detection in Traffic Scene</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.09609">https://arxiv.org/abs/1610.09609</a></li>
+</ul>
+
+<p><strong>Hierarchical Object Detection with Deep Reinforcement Learning</strong></p>
+
+<ul>
+  <li>intro: Deep Reinforcement Learning Workshop (NIPS 2016)</li>
+  <li>project page: <a href="https://imatge-upc.github.io/detection-2016-nipsws/">https://imatge-upc.github.io/detection-2016-nipsws/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.03718">https://arxiv.org/abs/1611.03718</a></li>
+  <li>slides: <a href="http://www.slideshare.net/xavigiro/hierarchical-object-detection-with-deep-reinforcement-learning">http://www.slideshare.net/xavigiro/hierarchical-object-detection-with-deep-reinforcement-learning</a></li>
+  <li>github: <a href="https://github.com/imatge-upc/detection-2016-nipsws">https://github.com/imatge-upc/detection-2016-nipsws</a></li>
+  <li>blog: <a href="http://jorditorres.org/nips/">http://jorditorres.org/nips/</a></li>
+</ul>
+
+<p><strong>Learning to detect and localize many objects from few examples</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.05664">https://arxiv.org/abs/1611.05664</a></li>
+</ul>
+
+<p><strong>Speed/accuracy trade-offs for modern convolutional object detectors</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. Google Research</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.10012">https://arxiv.org/abs/1611.10012</a></li>
+</ul>
+
+<p><strong>SqueezeDet: Unified, Small, Low Power Fully Convolutional Neural Networks for Real-Time Object Detection for Autonomous Driving</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.01051">https://arxiv.org/abs/1612.01051</a></li>
+  <li>github: <a href="https://github.com/BichenWuUCB/squeezeDet">https://github.com/BichenWuUCB/squeezeDet</a></li>
+  <li>github: <a href="https://github.com/fregu856/2D_detection">https://github.com/fregu856/2D_detection</a></li>
+</ul>
+
+<h2 id="feature-pyramid-network-fpn">Feature Pyramid Network (FPN)</h2>
+
+<p><strong>Feature Pyramid Networks for Object Detection</strong></p>
+
+<ul>
+  <li>intro: Facebook AI Research</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.03144">https://arxiv.org/abs/1612.03144</a></li>
+</ul>
+
+<p><strong>Action-Driven Object Detection with Top-Down Visual Attentions</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.06704">https://arxiv.org/abs/1612.06704</a></li>
+</ul>
+
+<p><strong>Beyond Skip Connections: Top-Down Modulation for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CMU &amp; UC Berkeley &amp; Google Research</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.06851">https://arxiv.org/abs/1612.06851</a></li>
+</ul>
+
+<p><strong>Wide-Residual-Inception Networks for Real-time Object Detection</strong></p>
+
+<ul>
+  <li>intro: Inha University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.01243">https://arxiv.org/abs/1702.01243</a></li>
+</ul>
+
+<p><strong>Attentional Network for Visual Object Detection</strong></p>
+
+<ul>
+  <li>intro: University of Maryland &amp; Mitsubishi Electric Research Laboratories</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.01478">https://arxiv.org/abs/1702.01478</a></li>
+</ul>
+
+<p><strong>Learning Chained Deep Features and Classifiers for Cascade in Object Detection</strong></p>
+
+<ul>
+  <li>keykwords: CC-Net</li>
+  <li>intro: chained cascade network (CC-Net). 81.1% mAP on PASCAL VOC 2007</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.07054">https://arxiv.org/abs/1702.07054</a></li>
+</ul>
+
+<p><strong>DeNet: Scalable Real-time Object Detection with Directed Sparse Sampling</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017 (poster)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.10295">https://arxiv.org/abs/1703.10295</a></li>
+</ul>
+
+<p><strong>Discriminative Bimodal Networks for Visual Localization and Detection with Natural Language Queries</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.03944">https://arxiv.org/abs/1704.03944</a></li>
+</ul>
+
+<p><strong>Spatial Memory for Context Reasoning in Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.04224">https://arxiv.org/abs/1704.04224</a></li>
+</ul>
+
+<p><strong>Accurate Single Stage Detector Using Recurrent Rolling Convolution</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. SenseTime</li>
+  <li>keywords: Recurrent Rolling Convolution (RRC)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.05776">https://arxiv.org/abs/1704.05776</a></li>
+  <li>github: <a href="https://github.com/xiaohaoChen/rrc_detection">https://github.com/xiaohaoChen/rrc_detection</a></li>
+</ul>
+
+<p><strong>Deep Occlusion Reasoning for Multi-Camera Multi-Target Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1704.05775">https://arxiv.org/abs/1704.05775</a></p>
+
+<p><strong>LCDet: Low-Complexity Fully-Convolutional Neural Networks for Object Detection in Embedded Systems</strong></p>
+
+<ul>
+  <li>intro: Embedded Vision Workshop in CVPR. UC San Diego &amp; Qualcomm Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1705.05922">https://arxiv.org/abs/1705.05922</a></li>
+</ul>
+
+<p><strong>Point Linking Network for Object Detection</strong></p>
+
+<ul>
+  <li>intro: Point Linking Network (PLN)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.03646">https://arxiv.org/abs/1706.03646</a></li>
+</ul>
+
+<p><strong>Perceptual Generative Adversarial Networks for Small Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.05274">https://arxiv.org/abs/1706.05274</a></p>
+
+<p><strong>Few-shot Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.08249">https://arxiv.org/abs/1706.08249</a></p>
+
+<p><strong>Yes-Net: An effective Detector Based on Global Information</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.09180">https://arxiv.org/abs/1706.09180</a></p>
+
+<p><strong>SMC Faster R-CNN: Toward a scene-specialized multi-object detector</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.10217">https://arxiv.org/abs/1706.10217</a></p>
+
+<p><strong>Towards lightweight convolutional neural networks for object detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1707.01395">https://arxiv.org/abs/1707.01395</a></p>
+
+<p><strong>RON: Reverse Connection with Objectness Prior Networks for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.01691">https://arxiv.org/abs/1707.01691</a></li>
+  <li>github: <a href="https://github.com/taokong/RON">https://github.com/taokong/RON</a></li>
+</ul>
+
+<p><strong>Mimicking Very Efficient Network for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. SenseTime &amp; Beihang University</li>
+  <li>paper: <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Li_Mimicking_Very_Efficient_CVPR_2017_paper.pdf">http://openaccess.thecvf.com/content_cvpr_2017/papers/Li_Mimicking_Very_Efficient_CVPR_2017_paper.pdf</a></li>
+</ul>
+
+<p><strong>Residual Features and Unified Prediction Network for Single Stage Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1707.05031">https://arxiv.org/abs/1707.05031</a></p>
+
+<p><strong>Deformable Part-based Fully Convolutional Network for Object Detection</strong></p>
+
+<ul>
+  <li>intro: BMVC 2017 (oral). Sorbonne Universités &amp; CEDRIC</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.06175">https://arxiv.org/abs/1707.06175</a></li>
+</ul>
+
+<p><strong>Adaptive Feeding: Achieving Fast and Accurate Detections by Adaptively Combining Object Detectors</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.06399">https://arxiv.org/abs/1707.06399</a></li>
+</ul>
+
+<p><strong>Recurrent Scale Approximation for Object Detection in CNN</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>keywords: Recurrent Scale Approximation (RSA)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.09531">https://arxiv.org/abs/1707.09531</a></li>
+  <li>github: <a href="https://github.com/sciencefans/RSA-for-object-detection">https://github.com/sciencefans/RSA-for-object-detection</a></li>
+</ul>
+
+<h2 id="dsod">DSOD</h2>
+
+<p><strong>DSOD: Learning Deeply Supervised Object Detectors from Scratch</strong></p>
+
+<p><img src="https://user-images.githubusercontent.com/3794909/28934967-718c9302-78b5-11e7-89ee-8b514e53e23c.png" alt="" /></p>
+
+<ul>
+  <li>intro: ICCV 2017. Fudan University &amp; Tsinghua University &amp; Intel Labs China</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.01241">https://arxiv.org/abs/1708.01241</a></li>
+  <li>github: <a href="https://github.com/szq0214/DSOD">https://github.com/szq0214/DSOD</a></li>
+</ul>
+
+<h2 id="retinanet">RetinaNet</h2>
+
+<p><strong>Focal Loss for Dense Object Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017 Best student paper award. Facebook AI Research</li>
+  <li>keywords: RetinaNet</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.02002">https://arxiv.org/abs/1708.02002</a></li>
+</ul>
+
+<p><strong>Focal Loss Dense Detector for Vehicle Surveillance</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.01114">https://arxiv.org/abs/1803.01114</a></p>
+
+<p><strong>CoupleNet: Coupling Global Structure with Local Parts for Object Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.02863">https://arxiv.org/abs/1708.02863</a></li>
+</ul>
+
+<p><strong>Incremental Learning of Object Detectors without Catastrophic Forgetting</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017. Inria</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.06977">https://arxiv.org/abs/1708.06977</a></li>
+</ul>
+
+<p><strong>Zoom Out-and-In Network with Map Attention Decision for Region Proposal and Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.04347">https://arxiv.org/abs/1709.04347</a></p>
+
+<p><strong>StairNet: Top-Down Semantic Aggregation for Accurate One Shot Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.05788">https://arxiv.org/abs/1709.05788</a></p>
+
+<p><strong>Dynamic Zoom-in Network for Fast Object Detection in Large Images</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.05187">https://arxiv.org/abs/1711.05187</a></p>
+
+<p><strong>Zero-Annotation Object Detection with Web Knowledge Transfer</strong></p>
+
+<ul>
+  <li>intro: NTU, Singapore &amp; Amazon</li>
+  <li>keywords: multi-instance multi-label domain adaption learning framework</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.05954">https://arxiv.org/abs/1711.05954</a></li>
+</ul>
+
+<h2 id="megdet">MegDet</h2>
+
+<p><strong>MegDet: A Large Mini-Batch Object Detector</strong></p>
+
+<ul>
+  <li>intro: Peking University &amp; Tsinghua University &amp; Megvii Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.07240">https://arxiv.org/abs/1711.07240</a></li>
+</ul>
+
+<p><strong>Single-Shot Refinement Neural Network for Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.06897">https://arxiv.org/abs/1711.06897</a></li>
+  <li>github: <a href="https://github.com/sfzhang15/RefineDet">https://github.com/sfzhang15/RefineDet</a></li>
+</ul>
+
+<p><strong>Receptive Field Block Net for Accurate and Fast Object Detection</strong></p>
+
+<ul>
+  <li>intro: RFBNet</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.07767">https://arxiv.org/abs/1711.07767</a></li>
+  <li>github: <a href="https://github.com//ruinmessi/RFBNet">https://github.com//ruinmessi/RFBNet</a></li>
+</ul>
+
+<p><strong>An Analysis of Scale Invariance in Object Detection - SNIP</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.08189">https://arxiv.org/abs/1711.08189</a></li>
+  <li>github: <a href="https://github.com/bharatsingh430/snip">https://github.com/bharatsingh430/snip</a></li>
+</ul>
+
+<p><strong>Feature Selective Networks for Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.08879">https://arxiv.org/abs/1711.08879</a></p>
+
+<p><strong>Learning a Rotation Invariant Detector with Rotatable Bounding Box</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.09405">https://arxiv.org/abs/1711.09405</a></li>
+  <li>github: <a href="https://github.com/liulei01/DRBox">https://github.com/liulei01/DRBox</a></li>
+</ul>
+
+<p><strong>Scalable Object Detection for Stylized Objects</strong></p>
+
+<ul>
+  <li>intro: Microsoft AI &amp; Research Munich</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1711.09822">https://arxiv.org/abs/1711.09822</a></li>
+</ul>
+
+<p><strong>Learning Object Detectors from Scratch with Gated Recurrent Feature Pyramids</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.00886">https://arxiv.org/abs/1712.00886</a></li>
+  <li>github: <a href="https://github.com/szq0214/GRP-DSOD">https://github.com/szq0214/GRP-DSOD</a></li>
+</ul>
+
+<p><strong>Deep Regionlets for Object Detection</strong></p>
+
+<ul>
+  <li>keywords: region selection network, gating network</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.02408">https://arxiv.org/abs/1712.02408</a></li>
+</ul>
+
+<p><strong>Training and Testing Object Detectors with Virtual Images</strong></p>
+
+<ul>
+  <li>intro: IEEE/CAA Journal of Automatica Sinica</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.08470">https://arxiv.org/abs/1712.08470</a></li>
+</ul>
+
+<p><strong>Large-Scale Object Discovery and Detector Adaptation from Unlabeled Video</strong></p>
+
+<ul>
+  <li>keywords: object mining, object tracking, unsupervised object discovery by appearance-based clustering, self-supervised detector adaptation</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.08832">https://arxiv.org/abs/1712.08832</a></li>
+</ul>
+
+<p><strong>Spot the Difference by Object Detection</strong></p>
+
+<ul>
+  <li>intro: Tsinghua University &amp; JD Group</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.01051">https://arxiv.org/abs/1801.01051</a></li>
+</ul>
+
+<p><strong>Localization-Aware Active Learning for Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.05124">https://arxiv.org/abs/1801.05124</a></li>
+</ul>
+
+<p><strong>Object Detection with Mask-based Feature Encoding</strong></p>
+
+<p><a href="https://arxiv.org/abs/1802.03934">https://arxiv.org/abs/1802.03934</a></p>
+
+<p><strong>LSTD: A Low-Shot Transfer Detector for Object Detection</strong></p>
+
+<ul>
+  <li>intro: AAAI 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.01529">https://arxiv.org/abs/1803.01529</a></li>
+</ul>
+
+<p><strong>Domain Adaptive Faster R-CNN for Object Detection in the Wild</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018. ETH Zurich &amp; ESAT/PSI</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.03243">https://arxiv.org/abs/1803.03243</a></li>
+</ul>
+
+<p><strong>Pseudo Mask Augmented Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.05858">https://arxiv.org/abs/1803.05858</a></p>
+
+<p><strong>Revisiting RCNN: On Awakening the Classification Power of Faster RCNN</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.06799">https://arxiv.org/abs/1803.06799</a></p>
+
+<p><strong>Learning Region Features for Object Detection</strong></p>
+
+<ul>
+  <li>intro: Peking University &amp; MSRA</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.07066">https://arxiv.org/abs/1803.07066</a></li>
+</ul>
+
+<p><strong>Single-Shot Bidirectional Pyramid Networks for High-Quality Object Detection</strong></p>
+
+<ul>
+  <li>intro: Singapore Management University &amp; Zhejiang University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.08208">https://arxiv.org/abs/1803.08208</a></li>
+</ul>
+
+<p><strong>Object Detection for Comics using Manga109 Annotations</strong></p>
+
+<ul>
+  <li>intro: University of Tokyo &amp; National Institute of Informatics, Japan</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.08670">https://arxiv.org/abs/1803.08670</a></li>
+</ul>
+
+<p><strong>Task-Driven Super Resolution: Object Detection in Low-resolution Images</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.11316">https://arxiv.org/abs/1803.11316</a></p>
+
+<p><strong>Transferring Common-Sense Knowledge for Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.01077">https://arxiv.org/abs/1804.01077</a></p>
+
+<p><strong>Multi-scale Location-aware Kernel Representation for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.00428">https://arxiv.org/abs/1804.00428</a></li>
+  <li>github: <a href="https://github.com/Hwang64/MLKP">https://github.com/Hwang64/MLKP</a></li>
+</ul>
+
+<p><strong>Loss Rank Mining: A General Hard Example Mining Method for Real-time Detectors</strong></p>
+
+<ul>
+  <li>intro: National University of Defense Technology</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.04606">https://arxiv.org/abs/1804.04606</a></li>
+</ul>
+
+<p><strong>DetNet: A Backbone network for Object Detection</strong></p>
+
+<ul>
+  <li>intro: Tsinghua University &amp; Megvii Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.06215">https://arxiv.org/abs/1804.06215</a></li>
+</ul>
+
+<p><strong>Robust Physical Adversarial Attack on Faster R-CNN Object Detector</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.05810">https://arxiv.org/abs/1804.05810</a></p>
+
+<p><strong>Quantization Mimic: Towards Very Tiny CNN for Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1805.02152">https://arxiv.org/abs/1805.02152</a></p>
+
+<p><strong>Object detection at 200 Frames Per Second</strong></p>
+
+<ul>
+  <li>intro: United Technologies Research Center-Ireland</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1805.06361">https://arxiv.org/abs/1805.06361</a></li>
+</ul>
+
+<h1 id="non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</h1>
+
+<p><strong>End-to-End Integration of a Convolutional Network, Deformable Parts Model and Non-Maximum Suppression</strong></p>
+
+<ul>
+  <li>intro: CVPR 2015</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1411.5309">http://arxiv.org/abs/1411.5309</a></li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Wan_End-to-End_Integration_of_2015_CVPR_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Wan_End-to-End_Integration_of_2015_CVPR_paper.pdf</a></li>
+</ul>
+
+<p><strong>A convnet for non-maximum suppression</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1511.06437">http://arxiv.org/abs/1511.06437</a></li>
+</ul>
+
+<p><strong>Improving Object Detection With One Line of Code</strong></p>
+
+<p><strong>Soft-NMS – Improving Object Detection With One Line of Code</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017. University of Maryland</li>
+  <li>keywords: Soft-NMS</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.04503">https://arxiv.org/abs/1704.04503</a></li>
+  <li>github: <a href="https://github.com/bharatsingh430/soft-nms">https://github.com/bharatsingh430/soft-nms</a></li>
+</ul>
+
+<p><strong>Learning non-maximum suppression</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>project page: <a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/object-recognition-and-scene-understanding/learning-nms/">https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/object-recognition-and-scene-understanding/learning-nms/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1705.02950">https://arxiv.org/abs/1705.02950</a></li>
+  <li>github: <a href="https://github.com/hosang/gossipnet">https://github.com/hosang/gossipnet</a></li>
+</ul>
+
+<p><strong>Relation Networks for Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.11575">https://arxiv.org/abs/1711.11575</a></p>
+
+<h1 id="adversarial-examples">Adversarial Examples</h1>
+
+<p><strong>Adversarial Examples that Fool Detectors</strong></p>
+
+<ul>
+  <li>intro: University of Illinois</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.02494">https://arxiv.org/abs/1712.02494</a></li>
+</ul>
+
+<p><strong>Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods</strong></p>
+
+<ul>
+  <li>project page: <a href="http://nicholas.carlini.com/code/nn_breaking_detection/">http://nicholas.carlini.com/code/nn_breaking_detection/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1705.07263">https://arxiv.org/abs/1705.07263</a></li>
+  <li>github: <a href="https://github.com/carlini/nn_breaking_detection">https://github.com/carlini/nn_breaking_detection</a></li>
+</ul>
+
+<h1 id="weakly-supervised-object-detection">Weakly Supervised Object Detection</h1>
+
+<p><strong>Track and Transfer: Watching Videos to Simulate Strong Human Supervision for Weakly-Supervised Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.05766">http://arxiv.org/abs/1604.05766</a></li>
+</ul>
+
+<p><strong>Weakly supervised object detection using pseudo-strong labels</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04731">http://arxiv.org/abs/1607.04731</a></li>
+</ul>
+
+<p><strong>Saliency Guided End-to-End Learning for Weakly Supervised Object Detection</strong></p>
+
+<ul>
+  <li>intro: IJCAI 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.06768">https://arxiv.org/abs/1706.06768</a></li>
+</ul>
+
+<p><strong>Visual and Semantic Knowledge Transfer for Large Scale Semi-supervised Object Detection</strong></p>
+
+<ul>
+  <li>intro: TPAMI 2017. National Institutes of Health (NIH) Clinical Center</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.03145">https://arxiv.org/abs/1801.03145</a></li>
+</ul>
+
+<h1 id="video-object-detection">Video Object Detection</h1>
+
+<p><strong>Learning Object Class Detectors from Weakly Annotated Video</strong></p>
+
+<ul>
+  <li>intro: CVPR 2012</li>
+  <li>paper: <a href="https://www.vision.ee.ethz.ch/publications/papers/proceedings/eth_biwi_00905.pdf">https://www.vision.ee.ethz.ch/publications/papers/proceedings/eth_biwi_00905.pdf</a></li>
+</ul>
+
+<p><strong>Analysing domain shift factors between videos and images for object detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1501.01186">https://arxiv.org/abs/1501.01186</a></li>
+</ul>
+
+<p><strong>Video Object Recognition</strong></p>
+
+<ul>
+  <li>slides: <a href="http://vision.princeton.edu/courses/COS598/2015sp/slides/VideoRecog/Video%20Object%20Recognition.pptx">http://vision.princeton.edu/courses/COS598/2015sp/slides/VideoRecog/Video%20Object%20Recognition.pptx</a></li>
+</ul>
+
+<p><strong>Deep Learning for Saliency Prediction in Natural Video</strong></p>
+
+<ul>
+  <li>intro: Submitted on 12 Jan 2016</li>
+  <li>keywords: Deep learning, saliency map, optical flow, convolution network, contrast features</li>
+  <li>paper: <a href="https://hal.archives-ouvertes.fr/hal-01251614/document">https://hal.archives-ouvertes.fr/hal-01251614/document</a></li>
+</ul>
+
+<p><strong>T-CNN: Tubelets with Convolutional Neural Networks for Object Detection from Videos</strong></p>
+
+<ul>
+  <li>intro: Winning solution in ILSVRC2015 Object Detection from Video(VID) Task</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.02532">http://arxiv.org/abs/1604.02532</a></li>
+  <li>github: <a href="https://github.com/myfavouritekk/T-CNN">https://github.com/myfavouritekk/T-CNN</a></li>
+</ul>
+
+<p><strong>Object Detection from Video Tubelets with Convolutional Neural Networks</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016 Spotlight paper</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1604.04053">https://arxiv.org/abs/1604.04053</a></li>
+  <li>paper: <a href="http://www.ee.cuhk.edu.hk/~wlouyang/Papers/KangVideoDet_CVPR16.pdf">http://www.ee.cuhk.edu.hk/~wlouyang/Papers/KangVideoDet_CVPR16.pdf</a></li>
+  <li>gihtub: <a href="https://github.com/myfavouritekk/vdetlib">https://github.com/myfavouritekk/vdetlib</a></li>
+</ul>
+
+<p><strong>Object Detection in Videos with Tubelets and Multi-context Cues</strong></p>
+
+<ul>
+  <li>intro: SenseTime Group</li>
+  <li>slides: <a href="http://www.ee.cuhk.edu.hk/~xgwang/CUvideo.pdf">http://www.ee.cuhk.edu.hk/~xgwang/CUvideo.pdf</a></li>
+  <li>slides: <a href="http://image-net.org/challenges/talks/Object%20Detection%20in%20Videos%20with%20Tubelets%20and%20Multi-context%20Cues%20-%20Final.pdf">http://image-net.org/challenges/talks/Object%20Detection%20in%20Videos%20with%20Tubelets%20and%20Multi-context%20Cues%20-%20Final.pdf</a></li>
+</ul>
+
+<p><strong>Context Matters: Refining Object Detection in Video with Recurrent Neural Networks</strong></p>
+
+<ul>
+  <li>intro: BMVC 2016</li>
+  <li>keywords: pseudo-labeler</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04648">http://arxiv.org/abs/1607.04648</a></li>
+  <li>paper: <a href="http://vision.cornell.edu/se3/wp-content/uploads/2016/07/video_object_detection_BMVC.pdf">http://vision.cornell.edu/se3/wp-content/uploads/2016/07/video_object_detection_BMVC.pdf</a></li>
+</ul>
+
+<p><strong>CNN Based Object Detection in Large Video Images</strong></p>
+
+<ul>
+  <li>intro: WangTao @ 爱奇艺</li>
+  <li>keywords: object retrieval, object detection, scene classification</li>
+  <li>slides: <a href="http://on-demand.gputechconf.com/gtc/2016/presentation/s6362-wang-tao-cnn-based-object-detection-large-video-images.pdf">http://on-demand.gputechconf.com/gtc/2016/presentation/s6362-wang-tao-cnn-based-object-detection-large-video-images.pdf</a></li>
+</ul>
+
+<p><strong>Object Detection in Videos with Tubelet Proposal Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.06355">https://arxiv.org/abs/1702.06355</a></li>
+</ul>
+
+<p><strong>Flow-Guided Feature Aggregation for Video Object Detection</strong></p>
+
+<ul>
+  <li>intro: MSRA</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.10025">https://arxiv.org/abs/1703.10025</a></li>
+</ul>
+
+<p><strong>Video Object Detection using Faster R-CNN</strong></p>
+
+<ul>
+  <li>blog: <a href="http://andrewliao11.github.io/object_detection/faster_rcnn/">http://andrewliao11.github.io/object_detection/faster_rcnn/</a></li>
+  <li>github: <a href="https://github.com/andrewliao11/py-faster-rcnn-imagenet">https://github.com/andrewliao11/py-faster-rcnn-imagenet</a></li>
+</ul>
+
+<p><strong>Improving Context Modeling for Video Object Detection and Tracking</strong></p>
+
+<p><a href="http://image-net.org/challenges/talks_2017/ilsvrc2017_short(poster).pdf">http://image-net.org/challenges/talks_2017/ilsvrc2017_short(poster).pdf</a></p>
+
+<p><strong>Temporal Dynamic Graph LSTM for Action-driven Video Object Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.00666">https://arxiv.org/abs/1708.00666</a></li>
+</ul>
+
+<p><strong>Mobile Video Object Detection with Temporally-Aware Feature Maps</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.06368">https://arxiv.org/abs/1711.06368</a></p>
+
+<p><strong>Towards High Performance Video Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.11577">https://arxiv.org/abs/1711.11577</a></p>
+
+<p><strong>Impression Network for Video Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.05896">https://arxiv.org/abs/1712.05896</a></p>
+
+<p><strong>Spatial-Temporal Memory Networks for Video Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.06317">https://arxiv.org/abs/1712.06317</a></p>
+
+<p><strong>3D-DETNet: a Single Stage Video-Based Vehicle Detector</strong></p>
+
+<p><a href="https://arxiv.org/abs/1801.01769">https://arxiv.org/abs/1801.01769</a></p>
+
+<p><strong>Object Detection in Videos by Short and Long Range Object Linking</strong></p>
+
+<p><a href="https://arxiv.org/abs/1801.09823">https://arxiv.org/abs/1801.09823</a></p>
+
+<p><strong>Object Detection in Video with Spatiotemporal Sampling Networks</strong></p>
+
+<ul>
+  <li>intro: University of Pennsylvania, 2Dartmouth College</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.05549">https://arxiv.org/abs/1803.05549</a></li>
+</ul>
+
+<p><strong>Towards High Performance Video Object Detection for Mobiles</strong></p>
+
+<ul>
+  <li>intro: Microsoft Research Asia</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.05830">https://arxiv.org/abs/1804.05830</a></li>
+</ul>
+
+<h1 id="object-detection-on-mobile-devices">Object Detection on Mobile Devices</h1>
+
+<p><strong>Pelee: A Real-Time Object Detection System on Mobile Devices</strong></p>
+
+<ul>
+  <li>intro: ICLR 2018 workshop track</li>
+  <li>intro: based on the SSD</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.06882">https://arxiv.org/abs/1804.06882</a></li>
+  <li>github: <a href="https://github.com/Robert-JunWang/Pelee">https://github.com/Robert-JunWang/Pelee</a></li>
+</ul>
+
+<h1 id="object-detection-in-3d">Object Detection in 3D</h1>
+
+<p><strong>Vote3Deep: Fast Object Detection in 3D Point Clouds Using Efficient Convolutional Neural Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1609.06666">https://arxiv.org/abs/1609.06666</a></li>
+</ul>
+
+<p><strong>Complex-YOLO: Real-time 3D Object Detection on Point Clouds</strong></p>
+
+<ul>
+  <li>intro: Valeo Schalter und Sensoren GmbH &amp; Ilmenau University of Technology</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.06199">https://arxiv.org/abs/1803.06199</a></li>
+</ul>
+
+<h1 id="object-detection-on-rgb-d">Object Detection on RGB-D</h1>
+
+<p><strong>Learning Rich Features from RGB-D Images for Object Detection and Segmentation</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1407.5736">http://arxiv.org/abs/1407.5736</a></li>
+</ul>
+
+<p><strong>Differential Geometry Boosts Convolutional Neural Networks for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016_workshops/w23/html/Wang_Differential_Geometry_Boosts_CVPR_2016_paper.html">http://www.cv-foundation.org/openaccess/content_cvpr_2016_workshops/w23/html/Wang_Differential_Geometry_Boosts_CVPR_2016_paper.html</a></li>
+</ul>
+
+<p><strong>A Self-supervised Learning System for Object Detection using Physics Simulation and Multi-view Pose Estimation</strong></p>
+
+<p><a href="https://arxiv.org/abs/1703.03347">https://arxiv.org/abs/1703.03347</a></p>
+
+<h1 id="zero-shot-object-detection">Zero-Shot Object Detection</h1>
+
+<p><strong>Zero-Shot Detection</strong></p>
+
+<ul>
+  <li>intro: Australian National University</li>
+  <li>keywords: YOLO</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.07113">https://arxiv.org/abs/1803.07113</a></li>
+</ul>
+
+<p><strong>Zero-Shot Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.04340">https://arxiv.org/abs/1804.04340</a></p>
+
+<p><strong>Zero-Shot Object Detection: Learning to Simultaneously Recognize and Localize Novel Concepts</strong></p>
+
+<ul>
+  <li>intro: Australian National University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.06049">https://arxiv.org/abs/1803.06049</a></li>
+</ul>
+
+<p><strong>Zero-Shot Object Detection by Hybrid Region Embedding</strong></p>
+
+<ul>
+  <li>intro: Middle East Technical University &amp; Hacettepe University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1805.06157">https://arxiv.org/abs/1805.06157</a></li>
+</ul>
+
+<h1 id="salient-object-detection">Salient Object Detection</h1>
+
+<p>This task involves predicting the salient regions of an image given by human eye fixations.</p>
+
+<p><strong>Best Deep Saliency Detection Models (CVPR 2016 &amp; 2015)</strong></p>
+
+<p><a href="http://i.cs.hku.hk/~yzyu/vision.html">http://i.cs.hku.hk/~yzyu/vision.html</a></p>
+
+<p><strong>Large-scale optimization of hierarchical features for saliency prediction in natural images</strong></p>
+
+<ul>
+  <li>paper: <a href="http://coxlab.org/pdfs/cvpr2014_vig_saliency.pdf">http://coxlab.org/pdfs/cvpr2014_vig_saliency.pdf</a></li>
+</ul>
+
+<p><strong>Predicting Eye Fixations using Convolutional Neural Networks</strong></p>
+
+<ul>
+  <li>paper: <a href="http://www.escience.cn/system/file?fileId=72648">http://www.escience.cn/system/file?fileId=72648</a></li>
+</ul>
+
+<p><strong>Saliency Detection by Multi-Context Deep Learning</strong></p>
+
+<ul>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Zhao_Saliency_Detection_by_2015_CVPR_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Zhao_Saliency_Detection_by_2015_CVPR_paper.pdf</a></li>
+</ul>
+
+<p><strong>DeepSaliency: Multi-Task Deep Neural Network Model for Salient Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1510.05484">http://arxiv.org/abs/1510.05484</a></li>
+</ul>
+
+<p><strong>SuperCNN: A Superpixelwise Convolutional Neural Network for Salient Object Detection</strong></p>
+
+<ul>
+  <li>paper: <a href="www.shengfenghe.com/supercnn-a-superpixelwise-convolutional-neural-network-for-salient-object-detection.html">www.shengfenghe.com/supercnn-a-superpixelwise-convolutional-neural-network-for-salient-object-detection.html</a></li>
+</ul>
+
+<p><strong>Shallow and Deep Convolutional Networks for Saliency Prediction</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1603.00845">http://arxiv.org/abs/1603.00845</a></li>
+  <li>github: <a href="https://github.com/imatge-upc/saliency-2016-cvpr">https://github.com/imatge-upc/saliency-2016-cvpr</a></li>
+</ul>
+
+<p><strong>Recurrent Attentional Networks for Saliency Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016. recurrent attentional convolutional-deconvolution network (RACDNN)</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1604.03227">http://arxiv.org/abs/1604.03227</a></li>
+</ul>
+
+<p><strong>Two-Stream Convolutional Networks for Dynamic Saliency Prediction</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04730">http://arxiv.org/abs/1607.04730</a></li>
+</ul>
+
+<p><strong>Unconstrained Salient Object Detection</strong></p>
+
+<p><strong>Unconstrained Salient Object Detection via Proposal Subset Optimization</strong></p>
+
+<p><img src="http://cs-people.bu.edu/jmzhang/images/pasted%20image%201465x373.jpg" alt="" /></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>project page: <a href="http://cs-people.bu.edu/jmzhang/sod.html">http://cs-people.bu.edu/jmzhang/sod.html</a></li>
+  <li>paper: <a href="http://cs-people.bu.edu/jmzhang/SOD/CVPR16SOD_camera_ready.pdf">http://cs-people.bu.edu/jmzhang/SOD/CVPR16SOD_camera_ready.pdf</a></li>
+  <li>github: <a href="https://github.com/jimmie33/SOD">https://github.com/jimmie33/SOD</a></li>
+  <li>caffe model zoo: <a href="https://github.com/BVLC/caffe/wiki/Model-Zoo#cnn-object-proposal-models-for-salient-object-detection">https://github.com/BVLC/caffe/wiki/Model-Zoo#cnn-object-proposal-models-for-salient-object-detection</a></li>
+</ul>
+
+<p><strong>DHSNet: Deep Hierarchical Saliency Network for Salient Object Detection</strong></p>
+
+<ul>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_DHSNet_Deep_Hierarchical_CVPR_2016_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_DHSNet_Deep_Hierarchical_CVPR_2016_paper.pdf</a></li>
+</ul>
+
+<p><strong>Salient Object Subitizing</strong></p>
+
+<p><img src="http://cs-people.bu.edu/jmzhang/images/frontpage.png?crc=123070793" alt="" /></p>
+
+<ul>
+  <li>intro: CVPR 2015</li>
+  <li>intro: predicting the existence and the number of salient objects in an image using holistic cues</li>
+  <li>project page: <a href="http://cs-people.bu.edu/jmzhang/sos.html">http://cs-people.bu.edu/jmzhang/sos.html</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.07525">http://arxiv.org/abs/1607.07525</a></li>
+  <li>paper: <a href="http://cs-people.bu.edu/jmzhang/SOS/SOS_preprint.pdf">http://cs-people.bu.edu/jmzhang/SOS/SOS_preprint.pdf</a></li>
+  <li>caffe model zoo: <a href="https://github.com/BVLC/caffe/wiki/Model-Zoo#cnn-models-for-salient-object-subitizing">https://github.com/BVLC/caffe/wiki/Model-Zoo#cnn-models-for-salient-object-subitizing</a></li>
+</ul>
+
+<p><strong>Deeply-Supervised Recurrent Convolutional Neural Network for Saliency Detection</strong></p>
+
+<ul>
+  <li>intro: ACMMM 2016. deeply-supervised recurrent convolutional neural network (DSRCNN)</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.05177">http://arxiv.org/abs/1608.05177</a></li>
+</ul>
+
+<p><strong>Saliency Detection via Combining Region-Level and Pixel-Level Predictions with CNNs</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.05186">http://arxiv.org/abs/1608.05186</a></li>
+</ul>
+
+<p><strong>Edge Preserving and Multi-Scale Contextual Neural Network for Salient Object Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.08029">http://arxiv.org/abs/1608.08029</a></li>
+</ul>
+
+<p><strong>A Deep Multi-Level Network for Saliency Prediction</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.01064">http://arxiv.org/abs/1609.01064</a></li>
+</ul>
+
+<p><strong>Visual Saliency Detection Based on Multiscale Deep CNN Features</strong></p>
+
+<ul>
+  <li>intro: IEEE Transactions on Image Processing</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.02077">http://arxiv.org/abs/1609.02077</a></li>
+</ul>
+
+<p><strong>A Deep Spatial Contextual Long-term Recurrent Convolutional Network for Saliency Detection</strong></p>
+
+<ul>
+  <li>intro: DSCLRCN</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.01708">https://arxiv.org/abs/1610.01708</a></li>
+</ul>
+
+<p><strong>Deeply supervised salient object detection with short connections</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.04849">https://arxiv.org/abs/1611.04849</a></li>
+</ul>
+
+<p><strong>Weakly Supervised Top-down Salient Object Detection</strong></p>
+
+<ul>
+  <li>intro: Nanyang Technological University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.05345">https://arxiv.org/abs/1611.05345</a></li>
+</ul>
+
+<p><strong>SalGAN: Visual Saliency Prediction with Generative Adversarial Networks</strong></p>
+
+<ul>
+  <li>project page: <a href="https://imatge-upc.github.io/saliency-salgan-2017/">https://imatge-upc.github.io/saliency-salgan-2017/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1701.01081">https://arxiv.org/abs/1701.01081</a></li>
+</ul>
+
+<p><strong>Visual Saliency Prediction Using a Mixture of Deep Neural Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.00372">https://arxiv.org/abs/1702.00372</a></li>
+</ul>
+
+<p><strong>A Fast and Compact Salient Score Regression Network Based on Fully Convolutional Network</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.00615">https://arxiv.org/abs/1702.00615</a></li>
+</ul>
+
+<p><strong>Saliency Detection by Forward and Backward Cues in Deep-CNNs</strong></p>
+
+<p><a href="https://arxiv.org/abs/1703.00152">https://arxiv.org/abs/1703.00152</a></p>
+
+<p><strong>Supervised Adversarial Networks for Image Saliency Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1704.07242">https://arxiv.org/abs/1704.07242</a></p>
+
+<p><strong>Group-wise Deep Co-saliency Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1707.07381">https://arxiv.org/abs/1707.07381</a></p>
+
+<p><strong>Towards the Success Rate of One: Real-time Unconstrained Salient Object Detection</strong></p>
+
+<ul>
+  <li>intro: University of Maryland College Park &amp; eBay Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.00079">https://arxiv.org/abs/1708.00079</a></li>
+</ul>
+
+<p><strong>Amulet: Aggregating Multi-level Convolutional Features for Salient Object Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arixv: <a href="https://arxiv.org/abs/1708.02001">https://arxiv.org/abs/1708.02001</a></li>
+</ul>
+
+<p><strong>Learning Uncertain Convolutional Features for Accurate Saliency Detection</strong></p>
+
+<ul>
+  <li>intro: Accepted as a poster in ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.02031">https://arxiv.org/abs/1708.02031</a></li>
+</ul>
+
+<p><strong>Deep Edge-Aware Saliency Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1708.04366">https://arxiv.org/abs/1708.04366</a></p>
+
+<p><strong>Self-explanatory Deep Salient Object Detection</strong></p>
+
+<ul>
+  <li>intro: National University of Defense Technology, China &amp; National University of Singapore</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.05595">https://arxiv.org/abs/1708.05595</a></li>
+</ul>
+
+<p><strong>PiCANet: Learning Pixel-wise Contextual Attention in ConvNets and Its Application in Saliency Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1708.06433">https://arxiv.org/abs/1708.06433</a></p>
+
+<p><strong>DeepFeat: A Bottom Up and Top Down Saliency Model Based on Deep Features of Convolutional Neural Nets</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.02495">https://arxiv.org/abs/1709.02495</a></p>
+
+<p><strong>Recurrently Aggregating Deep Features for Salient Object Detection</strong></p>
+<ul>
+  <li>intro: AAAI 2018</li>
+  <li>paper: <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16775/16281">https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16775/16281</a></li>
+</ul>
+
+<p><strong>Deep saliency: What is learnt by a deep network about saliency?</strong></p>
+
+<ul>
+  <li>intro: 2nd Workshop on Visualisation for Deep Learning in the 34th International Conference On Machine Learning</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.04261">https://arxiv.org/abs/1801.04261</a></li>
+</ul>
+
+<p><strong>Contrast-Oriented Deep Neural Networks for Salient Object Detection</strong></p>
+
+<ul>
+  <li>intro: TNNLS</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.11395">https://arxiv.org/abs/1803.11395</a></li>
+</ul>
+
+<p><strong>Salient Object Detection by Lossless Feature Reflection</strong></p>
+
+<ul>
+  <li>intro: IJCAI 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1802.06527">https://arxiv.org/abs/1802.06527</a></li>
+</ul>
+
+<p><strong>HyperFusion-Net: Densely Reflective Fusion for Salient Object Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.05142">https://arxiv.org/abs/1804.05142</a></p>
+
+<h1 id="video-saliency-detection">Video Saliency Detection</h1>
+
+<p><strong>Deep Learning For Video Saliency Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.00871">https://arxiv.org/abs/1702.00871</a></li>
+</ul>
+
+<p><strong>Video Salient Object Detection Using Spatiotemporal Deep Features</strong></p>
+
+<p><a href="https://arxiv.org/abs/1708.01447">https://arxiv.org/abs/1708.01447</a></p>
+
+<p><strong>Predicting Video Saliency with Object-to-Motion CNN and Two-layer Convolutional LSTM</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.06316">https://arxiv.org/abs/1709.06316</a></p>
+
+<h1 id="visual-relationship-detection">Visual Relationship Detection</h1>
+
+<p><strong>Visual Relationship Detection with Language Priors</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016 oral</li>
+  <li>paper: <a href="https://cs.stanford.edu/people/ranjaykrishna/vrd/vrd.pdf">https://cs.stanford.edu/people/ranjaykrishna/vrd/vrd.pdf</a></li>
+  <li>github: <a href="https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection">https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection</a></li>
+</ul>
+
+<p><strong>ViP-CNN: A Visual Phrase Reasoning Convolutional Neural Network for Visual Relationship Detection</strong></p>
+
+<ul>
+  <li>intro: Visual Phrase reasoning Convolutional Neural Network (ViP-CNN), Visual Phrase Reasoning Structure (VPRS)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.07191">https://arxiv.org/abs/1702.07191</a></li>
+</ul>
+
+<p><strong>Visual Translation Embedding Network for Visual Relation Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://www.arxiv.org/abs/1702.08319">https://www.arxiv.org/abs/1702.08319</a></li>
+</ul>
+
+<p><strong>Deep Variation-structured Reinforcement Learning for Visual Relationship and Attribute Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017 spotlight paper</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.03054">https://arxiv.org/abs/1703.03054</a></li>
+</ul>
+
+<p><strong>Detecting Visual Relationships with Deep Relational Networks</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017 oral. The Chinese University of Hong Kong</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.03114">https://arxiv.org/abs/1704.03114</a></li>
+</ul>
+
+<p><strong>Identifying Spatial Relations in Images using Convolutional Neural Networks</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.04215">https://arxiv.org/abs/1706.04215</a></p>
+
+<p><strong>PPR-FCN: Weakly Supervised Visual Relation Detection via Parallel Pairwise R-FCN</strong></p>
+
+<ul>
+  <li>intro: ICCV</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.01956">https://arxiv.org/abs/1708.01956</a></li>
+</ul>
+
+<p><strong>Natural Language Guided Visual Relationship Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.06032">https://arxiv.org/abs/1711.06032</a></p>
+
+<h1 id="face-deteciton">Face Deteciton</h1>
+
+<p><strong>Multi-view Face Detection Using Deep Convolutional Neural Networks</strong></p>
+
+<ul>
+  <li>intro: Yahoo</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1502.02766">http://arxiv.org/abs/1502.02766</a></li>
+  <li>github: <a href="https://github.com/guoyilin/FaceDetection_CNN">https://github.com/guoyilin/FaceDetection_CNN</a></li>
+</ul>
+
+<p><strong>From Facial Parts Responses to Face Detection: A Deep Learning Approach</strong></p>
+
+<p><img src="http://personal.ie.cuhk.edu.hk/~ys014/projects/Faceness/support/index.png" alt="" /></p>
+
+<ul>
+  <li>intro: ICCV 2015. CUHK</li>
+  <li>project page: <a href="http://personal.ie.cuhk.edu.hk/~ys014/projects/Faceness/Faceness.html">http://personal.ie.cuhk.edu.hk/~ys014/projects/Faceness/Faceness.html</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1509.06451">https://arxiv.org/abs/1509.06451</a></li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Yang_From_Facial_Parts_ICCV_2015_paper.pdf">http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Yang_From_Facial_Parts_ICCV_2015_paper.pdf</a></li>
+</ul>
+
+<p><strong>Compact Convolutional Neural Network Cascade for Face Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1508.01292">http://arxiv.org/abs/1508.01292</a></li>
+  <li>github: <a href="https://github.com/Bkmz21/FD-Evaluation">https://github.com/Bkmz21/FD-Evaluation</a></li>
+  <li>github: <a href="https://github.com/Bkmz21/CompactCNNCascade">https://github.com/Bkmz21/CompactCNNCascade</a></li>
+</ul>
+
+<p><strong>Face Detection with End-to-End Integration of a ConvNet and a 3D Model</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1606.00850">https://arxiv.org/abs/1606.00850</a></li>
+  <li>github(MXNet): <a href="https://github.com/tfwu/FaceDetection-ConvNet-3D">https://github.com/tfwu/FaceDetection-ConvNet-3D</a></li>
+</ul>
+
+<p><strong>CMS-RCNN: Contextual Multi-Scale Region-based CNN for Unconstrained Face Detection</strong></p>
+
+<ul>
+  <li>intro: CMU</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1606.05413">https://arxiv.org/abs/1606.05413</a></li>
+</ul>
+
+<p><strong>Towards a Deep Learning Framework for Unconstrained Face Detection</strong></p>
+
+<ul>
+  <li>intro: overlap with CMS-RCNN</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.05322">https://arxiv.org/abs/1612.05322</a></li>
+</ul>
+
+<p><strong>Supervised Transformer Network for Efficient Face Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.05477">http://arxiv.org/abs/1607.05477</a></li>
+</ul>
+
+<p><strong>UnitBox: An Advanced Object Detection Network</strong></p>
+
+<ul>
+  <li>intro: ACM MM 2016</li>
+  <li>keywords: IOULoss</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.01471">http://arxiv.org/abs/1608.01471</a></li>
+</ul>
+
+<p><strong>Bootstrapping Face Detection with Hard Negative Examples</strong></p>
+
+<ul>
+  <li>author: 万韶华 @ 小米.</li>
+  <li>intro: Faster R-CNN, hard negative mining. state-of-the-art on the FDDB dataset</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.02236">http://arxiv.org/abs/1608.02236</a></li>
+</ul>
+
+<p><strong>Grid Loss: Detecting Occluded Faces</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1609.00129">https://arxiv.org/abs/1609.00129</a></li>
+  <li>paper: <a href="http://lrs.icg.tugraz.at/pubs/opitz_eccv_16.pdf">http://lrs.icg.tugraz.at/pubs/opitz_eccv_16.pdf</a></li>
+  <li>poster: <a href="http://www.eccv2016.org/files/posters/P-2A-34.pdf">http://www.eccv2016.org/files/posters/P-2A-34.pdf</a></li>
+</ul>
+
+<p><strong>A Multi-Scale Cascade Fully Convolutional Network Face Detector</strong></p>
+
+<ul>
+  <li>intro: ICPR 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.03536">http://arxiv.org/abs/1609.03536</a></li>
+</ul>
+
+<h2 id="mtcnn">MTCNN</h2>
+
+<p><strong>Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks</strong></p>
+
+<p><strong>Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Neural Networks</strong></p>
+
+<p><img src="https://kpzhang93.github.io/MTCNN_face_detection_alignment/support/index.png" alt="" /></p>
+
+<ul>
+  <li>project page: <a href="https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html">https://kpzhang93.github.io/MTCNN_face_detection_alignment/index.html</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1604.02878">https://arxiv.org/abs/1604.02878</a></li>
+  <li>github(official, Matlab): <a href="https://github.com/kpzhang93/MTCNN_face_detection_alignment">https://github.com/kpzhang93/MTCNN_face_detection_alignment</a></li>
+  <li>github: <a href="https://github.com/pangyupo/mxnet_mtcnn_face_detection">https://github.com/pangyupo/mxnet_mtcnn_face_detection</a></li>
+  <li>github: <a href="https://github.com/DaFuCoding/MTCNN_Caffe">https://github.com/DaFuCoding/MTCNN_Caffe</a></li>
+  <li>github(MXNet): <a href="https://github.com/Seanlinx/mtcnn">https://github.com/Seanlinx/mtcnn</a></li>
+  <li>github: <a href="https://github.com/Pi-DeepLearning/RaspberryPi-FaceDetection-MTCNN-Caffe-With-Motion">https://github.com/Pi-DeepLearning/RaspberryPi-FaceDetection-MTCNN-Caffe-With-Motion</a></li>
+  <li>github(Caffe): <a href="https://github.com/foreverYoungGitHub/MTCNN">https://github.com/foreverYoungGitHub/MTCNN</a></li>
+  <li>github: <a href="https://github.com/CongWeilin/mtcnn-caffe">https://github.com/CongWeilin/mtcnn-caffe</a></li>
+  <li>github(OpenCV+OpenBlas): <a href="https://github.com/AlphaQi/MTCNN-light">https://github.com/AlphaQi/MTCNN-light</a></li>
+  <li>github(Tensorflow+golang): <a href="https://github.com/jdeng/goface">https://github.com/jdeng/goface</a></li>
+</ul>
+
+<p><strong>Face Detection using Deep Learning: An Improved Faster RCNN Approach</strong></p>
+
+<ul>
+  <li>intro: DeepIR Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1701.08289">https://arxiv.org/abs/1701.08289</a></li>
+</ul>
+
+<p><strong>Faceness-Net: Face Detection through Deep Facial Part Responses</strong></p>
+
+<ul>
+  <li>intro: An extended version of ICCV 2015 paper</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1701.08393">https://arxiv.org/abs/1701.08393</a></li>
+</ul>
+
+<p><strong>Multi-Path Region-Based Convolutional Neural Network for Accurate Detection of Unconstrained “Hard Faces”</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. MP-RCNN, MP-RPN</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.09145">https://arxiv.org/abs/1703.09145</a></li>
+</ul>
+
+<p><strong>End-To-End Face Detection and Recognition</strong></p>
+
+<p><a href="https://arxiv.org/abs/1703.10818">https://arxiv.org/abs/1703.10818</a></p>
+
+<p><strong>Face R-CNN</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.01061">https://arxiv.org/abs/1706.01061</a></p>
+
+<p><strong>Face Detection through Scale-Friendly Deep Convolutional Networks</strong></p>
+
+<p><a href="https://arxiv.org/abs/1706.02863">https://arxiv.org/abs/1706.02863</a></p>
+
+<p><strong>Scale-Aware Face Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. SenseTime &amp; Tsinghua University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.09876">https://arxiv.org/abs/1706.09876</a></li>
+</ul>
+
+<p><strong>Detecting Faces Using Inside Cascaded Contextual CNN</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. Tencent AI Lab &amp; SenseTime</li>
+  <li>paper: <a href="http://ai.tencent.com/ailab/media/publications/Detecting_Faces_Using_Inside_Cascaded_Contextual_CNN.pdf">http://ai.tencent.com/ailab/media/publications/Detecting_Faces_Using_Inside_Cascaded_Contextual_CNN.pdf</a></li>
+</ul>
+
+<p><strong>Multi-Branch Fully Convolutional Network for Face Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1707.06330">https://arxiv.org/abs/1707.06330</a></p>
+
+<p><strong>SSH: Single Stage Headless Face Detector</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017. University of Maryland</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.03979">https://arxiv.org/abs/1708.03979</a></li>
+  <li>github(official, Caffe): <a href="https://github.com/mahyarnajibi/SSH">https://github.com/mahyarnajibi/SSH</a></li>
+</ul>
+
+<p><strong>Dockerface: an easy to install and use Faster R-CNN face detector in a Docker container</strong></p>
+
+<p><a href="https://arxiv.org/abs/1708.04370">https://arxiv.org/abs/1708.04370</a></p>
+
+<p><strong>FaceBoxes: A CPU Real-time Face Detector with High Accuracy</strong></p>
+
+<ul>
+  <li>intro: IJCB 2017</li>
+  <li>keywords: Rapidly Digested Convolutional Layers (RDCL), Multiple Scale Convolutional Layers (MSCL)</li>
+  <li>intro: the proposed detector runs at 20 FPS on a single CPU core and 125 FPS using a GPU for VGA-resolution images</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.05234">https://arxiv.org/abs/1708.05234</a></li>
+  <li>github(Caffe): <a href="https://github.com/zeusees/FaceBoxes">https://github.com/zeusees/FaceBoxes</a></li>
+</ul>
+
+<p><strong>S3FD: Single Shot Scale-invariant Face Detector</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017. Chinese Academy of Sciences</li>
+  <li>intro: can run at 36 FPS on a Nvidia Titan X (Pascal) for VGA-resolution images</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.05237">https://arxiv.org/abs/1708.05237</a></li>
+  <li>github(Caffe, official): <a href="https://github.com/sfzhang15/SFD">https://github.com/sfzhang15/SFD</a></li>
+  <li>github: <a href="https://github.com//clcarwin/SFD_pytorch">https://github.com//clcarwin/SFD_pytorch</a></li>
+</ul>
+
+<p><strong>Detecting Faces Using Region-based Fully Convolutional Networks</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.05256">https://arxiv.org/abs/1709.05256</a></p>
+
+<p><strong>AffordanceNet: An End-to-End Deep Learning Approach for Object Affordance Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.07326">https://arxiv.org/abs/1709.07326</a></p>
+
+<p><strong>Face Attention Network: An effective Face Detector for the Occluded Faces</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.07246">https://arxiv.org/abs/1711.07246</a></p>
+
+<p><strong>Feature Agglomeration Networks for Single Stage Face Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.00721">https://arxiv.org/abs/1712.00721</a></p>
+
+<p><strong>Face Detection Using Improved Faster RCNN</strong></p>
+
+<ul>
+  <li>intro: Huawei Cloud BU</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1802.02142">https://arxiv.org/abs/1802.02142</a></li>
+</ul>
+
+<p><strong>PyramidBox: A Context-assisted Single Shot Face Detector</strong></p>
+
+<ul>
+  <li>intro: Baidu, Inc</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.07737">https://arxiv.org/abs/1803.07737</a></li>
+</ul>
+
+<p><strong>A Fast Face Detection Method via Convolutional Neural Network</strong></p>
+
+<ul>
+  <li>intro: Neurocomputing</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.10103">https://arxiv.org/abs/1803.10103</a></li>
+</ul>
+
+<p><strong>Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018. Beihang University &amp; CUHK &amp; Sensetime</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.05197">https://arxiv.org/abs/1804.05197</a></li>
+</ul>
+
+<p><strong>SFace: An Efficient Network for Face Detection in Large Scale Variations</strong></p>
+
+<ul>
+  <li>intro: Beihang University &amp; Megvii Inc. (Face++)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.06559">https://arxiv.org/abs/1804.06559</a></li>
+</ul>
+
+<p><strong>Survey of Face Detection on Low-quality Images</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.07362">https://arxiv.org/abs/1804.07362</a></p>
+
+<p><strong>Anchor Cascade for Efficient Face Detection</strong></p>
+
+<ul>
+  <li>intro: The University of Sydney</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1805.03363">https://arxiv.org/abs/1805.03363</a></li>
+</ul>
+
+<h2 id="detect-small-faces">Detect Small Faces</h2>
+
+<p><strong>Finding Tiny Faces</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. CMU</li>
+  <li>project page: <a href="http://www.cs.cmu.edu/~peiyunh/tiny/index.html">http://www.cs.cmu.edu/~peiyunh/tiny/index.html</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.04402">https://arxiv.org/abs/1612.04402</a></li>
+  <li>github(official, Matlab): <a href="https://github.com/peiyunh/tiny">https://github.com/peiyunh/tiny</a></li>
+  <li>github(inference-only): <a href="https://github.com/chinakook/hr101_mxnet">https://github.com/chinakook/hr101_mxnet</a></li>
+  <li>github: <a href="https://github.com/cydonia999/Tiny_Faces_in_Tensorflow">https://github.com/cydonia999/Tiny_Faces_in_Tensorflow</a></li>
+</ul>
+
+<p><strong>Detecting and counting tiny faces</strong></p>
+
+<ul>
+  <li>intro: ENS Paris-Saclay. ExtendedTinyFaces</li>
+  <li>intro: Detecting and counting small objects - Analysis, review and application to counting</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.06504">https://arxiv.org/abs/1801.06504</a></li>
+  <li>github: <a href="https://github.com/alexattia/ExtendedTinyFaces">https://github.com/alexattia/ExtendedTinyFaces</a></li>
+</ul>
+
+<p><strong>Seeing Small Faces from Robust Anchor’s Perspective</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1802.09058">https://arxiv.org/abs/1802.09058</a></li>
+</ul>
+
+<p><strong>Face-MagNet: Magnifying Feature Maps to Detect Small Faces</strong></p>
+
+<ul>
+  <li>intro: WACV 2018</li>
+  <li>keywords: Face Magnifier Network (Face-MageNet)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.05258">https://arxiv.org/abs/1803.05258</a></li>
+  <li>github: <a href="https://github.com/po0ya/face-magnet">https://github.com/po0ya/face-magnet</a></li>
+</ul>
+
+<h1 id="person-head-detection">Person Head Detection</h1>
+
+<p><strong>Context-aware CNNs for person head detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015</li>
+  <li>project page: <a href="http://www.di.ens.fr/willow/research/headdetection/">http://www.di.ens.fr/willow/research/headdetection/</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1511.07917">http://arxiv.org/abs/1511.07917</a></li>
+  <li>github: <a href="https://github.com/aosokin/cnn_head_detection">https://github.com/aosokin/cnn_head_detection</a></li>
+</ul>
+
+<p><strong>Detecting Heads using Feature Refine Net and Cascaded Multi-scale Architecture</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.09256">https://arxiv.org/abs/1803.09256</a></p>
+
+<h1 id="pedestrian-detection--people-detection">Pedestrian Detection / People Detection</h1>
+
+<p><strong>Pedestrian Detection aided by Deep Learning Semantic Tasks</strong></p>
+
+<ul>
+  <li>intro: CVPR 2015</li>
+  <li>project page: <a href="http://mmlab.ie.cuhk.edu.hk/projects/TA-CNN/">http://mmlab.ie.cuhk.edu.hk/projects/TA-CNN/</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1412.0069">http://arxiv.org/abs/1412.0069</a></li>
+</ul>
+
+<p><strong>Deep Learning Strong Parts for Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015. CUHK. DeepParts</li>
+  <li>intro: Achieving 11.89% average miss rate on Caltech Pedestrian Dataset</li>
+  <li>paper: <a href="http://personal.ie.cuhk.edu.hk/~pluo/pdf/tianLWTiccv15.pdf">http://personal.ie.cuhk.edu.hk/~pluo/pdf/tianLWTiccv15.pdf</a></li>
+</ul>
+
+<p><strong>Taking a Deeper Look at Pedestrians</strong></p>
+
+<ul>
+  <li>intro: CVPR 2015</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1501.05790">https://arxiv.org/abs/1501.05790</a></li>
+</ul>
+
+<p><strong>Convolutional Channel Features</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1504.07339">https://arxiv.org/abs/1504.07339</a></li>
+  <li>github: <a href="https://github.com/byangderek/CCF">https://github.com/byangderek/CCF</a></li>
+</ul>
+
+<p><strong>End-to-end people detection in crowded scenes</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1506.04878">http://arxiv.org/abs/1506.04878</a></li>
+  <li>github: <a href="https://github.com/Russell91/reinspect">https://github.com/Russell91/reinspect</a></li>
+  <li>ipn: <a href="http://nbviewer.ipython.org/github/Russell91/ReInspect/blob/master/evaluation_reinspect.ipynb">http://nbviewer.ipython.org/github/Russell91/ReInspect/blob/master/evaluation_reinspect.ipynb</a></li>
+  <li>youtube: <a href="https://www.youtube.com/watch?v=QeWl0h3kQ24">https://www.youtube.com/watch?v=QeWl0h3kQ24</a></li>
+</ul>
+
+<p><strong>Learning Complexity-Aware Cascades for Deep Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1507.05348">https://arxiv.org/abs/1507.05348</a></li>
+</ul>
+
+<p><strong>Deep convolutional neural networks for pedestrian detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1510.03608">http://arxiv.org/abs/1510.03608</a></li>
+  <li>github: <a href="https://github.com/DenisTome/DeepPed">https://github.com/DenisTome/DeepPed</a></li>
+</ul>
+
+<p><strong>Scale-aware Fast R-CNN for Pedestrian Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1510.08160">https://arxiv.org/abs/1510.08160</a></li>
+</ul>
+
+<p><strong>New algorithm improves speed and accuracy of pedestrian detection</strong></p>
+
+<ul>
+  <li>blog: <a href="http://www.eurekalert.org/pub_releases/2016-02/uoc--nai020516.php">http://www.eurekalert.org/pub_releases/2016-02/uoc–nai020516.php</a></li>
+</ul>
+
+<p><strong>Pushing the Limits of Deep CNNs for Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: “set a new record on the Caltech pedestrian dataset, lowering the log-average miss rate from 11.7% to 8.9%”</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1603.04525">http://arxiv.org/abs/1603.04525</a></li>
+</ul>
+
+<p><strong>A Real-Time Deep Learning Pedestrian Detector for Robot Navigation</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04436">http://arxiv.org/abs/1607.04436</a></li>
+</ul>
+
+<p><strong>A Real-Time Pedestrian Detector using Deep Learning for Human-Aware Navigation</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04441">http://arxiv.org/abs/1607.04441</a></li>
+</ul>
+
+<p><strong>Is Faster R-CNN Doing Well for Pedestrian Detection?</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.07032">http://arxiv.org/abs/1607.07032</a></li>
+  <li>github: <a href="https://github.com/zhangliliang/RPN_BF/tree/RPN-pedestrian">https://github.com/zhangliliang/RPN_BF/tree/RPN-pedestrian</a></li>
+</ul>
+
+<p><strong>Unsupervised Deep Domain Adaptation for Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: ECCV Workshop 2016</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1802.03269">https://arxiv.org/abs/1802.03269</a></li>
+</ul>
+
+<p><strong>Reduced Memory Region Based Deep Convolutional Neural Network Detection</strong></p>
+
+<ul>
+  <li>intro: IEEE 2016 ICCE-Berlin</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.02500">http://arxiv.org/abs/1609.02500</a></li>
+</ul>
+
+<p><strong>Fused DNN: A deep neural network fusion approach to fast and robust pedestrian detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.03466">https://arxiv.org/abs/1610.03466</a></li>
+</ul>
+
+<p><strong>Detecting People in Artwork with CNNs</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016 Workshops</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.08871">https://arxiv.org/abs/1610.08871</a></li>
+</ul>
+
+<p><strong>Multispectral Deep Neural Networks for Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: BMVC 2016 oral</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.02644">https://arxiv.org/abs/1611.02644</a></li>
+</ul>
+
+<p><strong>Deep Multi-camera People Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.04593">https://arxiv.org/abs/1702.04593</a></li>
+</ul>
+
+<p><strong>Expecting the Unexpected: Training Detectors for Unusual Pedestrians with Adversarial Imposters</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>project page: <a href="http://ml.cs.tsinghua.edu.cn:5000/publications/synunity/">http://ml.cs.tsinghua.edu.cn:5000/publications/synunity/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.06283">https://arxiv.org/abs/1703.06283</a></li>
+  <li>github(Tensorflow): <a href="https://github.com/huangshiyu13/RPNplus">https://github.com/huangshiyu13/RPNplus</a></li>
+</ul>
+
+<p><strong>What Can Help Pedestrian Detection?</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017. Tsinghua University &amp; Peking University &amp; Megvii Inc.</li>
+  <li>keywords: Faster R-CNN, HyperLearner</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1705.02757">https://arxiv.org/abs/1705.02757</a></li>
+  <li>paper: <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Mao_What_Can_Help_CVPR_2017_paper.pdf">http://openaccess.thecvf.com/content_cvpr_2017/papers/Mao_What_Can_Help_CVPR_2017_paper.pdf</a></li>
+</ul>
+
+<p><strong>Illuminating Pedestrians via Simultaneous Detection &amp; Segmentation</strong></p>
+
+<p>[https://arxiv.org/abs/1706.08564](https://arxiv.org/abs/1706.08564</p>
+
+<p><strong>Rotational Rectification Network for Robust Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: CMU &amp; Volvo Construction</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.08917">https://arxiv.org/abs/1706.08917</a></li>
+</ul>
+
+<p><strong>STD-PD: Generating Synthetic Training Data for Pedestrian Detection in Unannotated Videos</strong></p>
+
+<ul>
+  <li>intro: The University of North Carolina at Chapel Hill</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1707.09100">https://arxiv.org/abs/1707.09100</a></li>
+</ul>
+
+<p><strong>Too Far to See? Not Really! — Pedestrian Detection with Scale-aware Localization Policy</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.00235">https://arxiv.org/abs/1709.00235</a></p>
+
+<p><strong>Repulsion Loss: Detecting Pedestrians in a Crowd</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.07752">https://arxiv.org/abs/1711.07752</a></p>
+
+<p><strong>Aggregated Channels Network for Real-Time Pedestrian Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1801.00476">https://arxiv.org/abs/1801.00476</a></p>
+
+<p><strong>Illumination-aware Faster R-CNN for Robust Multispectral Pedestrian Detection</strong></p>
+
+<ul>
+  <li>intro: State Key Lab of CAD&amp;CG, Zhejiang University</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.05347">https://arxiv.org/abs/1803.05347</a></li>
+</ul>
+
+<p><strong>Exploring Multi-Branch and High-Level Semantic Networks for Improving Pedestrian Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.00872">https://arxiv.org/abs/1804.00872</a></p>
+
+<p><strong>Pedestrian-Synthesis-GAN: Generating Pedestrian Data in Real Scene and Beyond</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.02047">https://arxiv.org/abs/1804.02047</a></p>
+
+<p><strong>PCN: Part and Context Information for Pedestrian Detection with CNNs</strong></p>
+
+<ul>
+  <li>intro: British Machine Vision Conference(BMVC) 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.04483">https://arxiv.org/abs/1804.04483</a></li>
+</ul>
+
+<h1 id="vehicle-detection">Vehicle Detection</h1>
+
+<p><strong>DAVE: A Unified Framework for Fast Vehicle Detection and Annotation</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1607.04564">http://arxiv.org/abs/1607.04564</a></li>
+</ul>
+
+<p><strong>Evolving Boxes for fast Vehicle Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.00254">https://arxiv.org/abs/1702.00254</a></li>
+</ul>
+
+<p><strong>Fine-Grained Car Detection for Visual Census Estimation</strong></p>
+
+<ul>
+  <li>intro: AAAI 2016</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1709.02480">https://arxiv.org/abs/1709.02480</a></li>
+</ul>
+
+<p><strong>SINet: A Scale-insensitive Convolutional Neural Network for Fast Vehicle Detection</strong></p>
+
+<ul>
+  <li>intro: IEEE Transactions on Intelligent Transportation Systems (T-ITS)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1804.00433">https://arxiv.org/abs/1804.00433</a></li>
+</ul>
+
+<h1 id="traffic-sign-detection">Traffic-Sign Detection</h1>
+
+<p><strong>Traffic-Sign Detection and Classification in the Wild</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016</li>
+  <li>project page(code+dataset): <a href="http://cg.cs.tsinghua.edu.cn/traffic-sign/">http://cg.cs.tsinghua.edu.cn/traffic-sign/</a></li>
+  <li>paper: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhu_Traffic-Sign_Detection_and_CVPR_2016_paper.pdf">http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhu_Traffic-Sign_Detection_and_CVPR_2016_paper.pdf</a></li>
+  <li>code &amp; model: <a href="http://cg.cs.tsinghua.edu.cn/traffic-sign/data_model_code/newdata0411.zip">http://cg.cs.tsinghua.edu.cn/traffic-sign/data_model_code/newdata0411.zip</a></li>
+</ul>
+
+<p><strong>Evaluating State-of-the-art Object Detector on Challenging Traffic Light Data</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017 workshop</li>
+  <li>paper: <a href="http://openaccess.thecvf.com/content_cvpr_2017_workshops/w9/papers/Jensen_Evaluating_State-Of-The-Art_Object_CVPR_2017_paper.pdf">http://openaccess.thecvf.com/content_cvpr_2017_workshops/w9/papers/Jensen_Evaluating_State-Of-The-Art_Object_CVPR_2017_paper.pdf</a></li>
+</ul>
+
+<p><strong>Detecting Small Signs from Large Images</strong></p>
+
+<ul>
+  <li>intro: IEEE Conference on Information Reuse and Integration (IRI) 2017 oral</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.08574">https://arxiv.org/abs/1706.08574</a></li>
+</ul>
+
+<p><strong>Localized Traffic Sign Detection with Multi-scale Deconvolution Networks</strong></p>
+
+<p><a href="https://arxiv.org/abs/1804.10428">https://arxiv.org/abs/1804.10428</a></p>
+
+<p><strong>Detecting Traffic Lights by Single Shot Detection</strong></p>
+
+<ul>
+  <li>intro: ITSC 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1805.02523">https://arxiv.org/abs/1805.02523</a></li>
+</ul>
+
+<h1 id="skeleton-detection">Skeleton Detection</h1>
+
+<p><strong>Object Skeleton Extraction in Natural Images by Fusing Scale-associated Deep Side Outputs</strong></p>
+
+<p><img src="https://camo.githubusercontent.com/88a65f132aa4ae4b0477e3ad02c13cdc498377d9/687474703a2f2f37786e37777a2e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f44656570536b656c65746f6e2e706e673f696d61676556696577322f322f772f353030" alt="" /></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1603.09446">http://arxiv.org/abs/1603.09446</a></li>
+  <li>github: <a href="https://github.com/zeakey/DeepSkeleton">https://github.com/zeakey/DeepSkeleton</a></li>
+</ul>
+
+<p><strong>DeepSkeleton: Learning Multi-task Scale-associated Deep Side Outputs for Object Skeleton Extraction in Natural Images</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.03659">http://arxiv.org/abs/1609.03659</a></li>
+</ul>
+
+<p><strong>SRN: Side-output Residual Network for Object Symmetry Detection in the Wild</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1703.02243">https://arxiv.org/abs/1703.02243</a></li>
+  <li>github: <a href="https://github.com/KevinKecc/SRN">https://github.com/KevinKecc/SRN</a></li>
+</ul>
+
+<p><strong>Hi-Fi: Hierarchical Feature Integration for Skeleton Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1801.01849">https://arxiv.org/abs/1801.01849</a></p>
+
+<h1 id="fruit-detection">Fruit Detection</h1>
+
+<p><strong>Deep Fruit Detection in Orchards</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.03677">https://arxiv.org/abs/1610.03677</a></li>
+</ul>
+
+<p><strong>Image Segmentation for Fruit Detection and Yield Estimation in Apple Orchards</strong></p>
+
+<ul>
+  <li>intro: The Journal of Field Robotics in May 2016</li>
+  <li>project page: <a href="http://confluence.acfr.usyd.edu.au/display/AGPub/">http://confluence.acfr.usyd.edu.au/display/AGPub/</a></li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1610.08120">https://arxiv.org/abs/1610.08120</a></li>
+</ul>
+
+<h2 id="shadow-detection">Shadow Detection</h2>
+
+<p><strong>Fast Shadow Detection from a Single Image Using a Patched Convolutional Neural Network</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.09283">https://arxiv.org/abs/1709.09283</a></p>
+
+<p><strong>A+D-Net: Shadow Detection with Adversarial Shadow Attenuation</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.01361">https://arxiv.org/abs/1712.01361</a></p>
+
+<p><strong>Stacked Conditional Generative Adversarial Networks for Jointly Learning Shadow Detection and Shadow Removal</strong></p>
+
+<p><a href="https://arxiv.org/abs/1712.02478">https://arxiv.org/abs/1712.02478</a></p>
+
+<p><strong>Direction-aware Spatial Context Features for Shadow Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1712.04142">https://arxiv.org/abs/1712.04142</a></li>
+</ul>
+
+<p><strong>Direction-aware Spatial Context Features for Shadow Detection and Removal</strong></p>
+
+<ul>
+  <li>intro: The Chinese University of Hong Kong &amp; The Hong Kong Polytechnic University</li>
+  <li>arxiv:- arxiv:  <a href="https://arxiv.org/abs/1805.04635">https://arxiv.org/abs/1805.04635</a></li>
+</ul>
+
+<h1 id="others-detection">Others Detection</h1>
+
+<p><strong>Deep Deformation Network for Object Landmark Localization</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1605.01014">http://arxiv.org/abs/1605.01014</a></li>
+</ul>
+
+<p><strong>Fashion Landmark Detection in the Wild</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>project page: <a href="http://personal.ie.cuhk.edu.hk/~lz013/projects/FashionLandmarks.html">http://personal.ie.cuhk.edu.hk/~lz013/projects/FashionLandmarks.html</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.03049">http://arxiv.org/abs/1608.03049</a></li>
+  <li>github(Caffe): <a href="https://github.com/liuziwei7/fashion-landmarks">https://github.com/liuziwei7/fashion-landmarks</a></li>
+</ul>
+
+<p><strong>Deep Learning for Fast and Accurate Fashion Item Detection</strong></p>
+
+<ul>
+  <li>intro: Kuznech Inc.</li>
+  <li>intro: MultiBox and Fast R-CNN</li>
+  <li>paper: <a href="https://kddfashion2016.mybluemix.net/kddfashion_finalSubmissions/Deep%20Learning%20for%20Fast%20and%20Accurate%20Fashion%20Item%20Detection.pdf">https://kddfashion2016.mybluemix.net/kddfashion_finalSubmissions/Deep%20Learning%20for%20Fast%20and%20Accurate%20Fashion%20Item%20Detection.pdf</a></li>
+</ul>
+
+<p><strong>OSMDeepOD - OSM and Deep Learning based Object Detection from Aerial Imagery (formerly known as “OSM-Crosswalk-Detection”)</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/geometalab/OSMDeepOD/master/imgs/process.png" alt="" /></p>
+
+<ul>
+  <li>github: <a href="https://github.com/geometalab/OSMDeepOD">https://github.com/geometalab/OSMDeepOD</a></li>
+</ul>
+
+<p><strong>Selfie Detection by Synergy-Constraint Based Convolutional Neural Network</strong></p>
+
+<ul>
+  <li>intro:  IEEE SITIS 2016</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.04357">https://arxiv.org/abs/1611.04357</a></li>
+</ul>
+
+<p><strong>Associative Embedding:End-to-End Learning for Joint Detection and Grouping</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.05424">https://arxiv.org/abs/1611.05424</a></li>
+</ul>
+
+<p><strong>Deep Cuboid Detection: Beyond 2D Bounding Boxes</strong></p>
+
+<ul>
+  <li>intro: CMU &amp; Magic Leap</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1611.10010">https://arxiv.org/abs/1611.10010</a></li>
+</ul>
+
+<p><strong>Automatic Model Based Dataset Generation for Fast and Accurate Crop and Weeds Detection</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.03019">https://arxiv.org/abs/1612.03019</a></li>
+</ul>
+
+<p><strong>Deep Learning Logo Detection with Data Expansion by Synthesising Context</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.09322">https://arxiv.org/abs/1612.09322</a></li>
+</ul>
+
+<p><strong>Scalable Deep Learning Logo Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.11417">https://arxiv.org/abs/1803.11417</a></p>
+
+<p><strong>Pixel-wise Ear Detection with Convolutional Encoder-Decoder Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.00307">https://arxiv.org/abs/1702.00307</a></li>
+</ul>
+
+<p><strong>Automatic Handgun Detection Alarm in Videos Using Deep Learning</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1702.05147">https://arxiv.org/abs/1702.05147</a></li>
+  <li>results: <a href="https://github.com/SihamTabik/Pistol-Detection-in-Videos">https://github.com/SihamTabik/Pistol-Detection-in-Videos</a></li>
+</ul>
+
+<p><strong>Objects as context for part detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1703.09529">https://arxiv.org/abs/1703.09529</a></p>
+
+<p><strong>Using Deep Networks for Drone Detection</strong></p>
+
+<ul>
+  <li>intro: AVSS 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1706.05726">https://arxiv.org/abs/1706.05726</a></li>
+</ul>
+
+<p><strong>Cut, Paste and Learn: Surprisingly Easy Synthesis for Instance Detection</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1708.01642">https://arxiv.org/abs/1708.01642</a></li>
+</ul>
+
+<p><strong>Target Driven Instance Detection</strong></p>
+
+<p><a href="https://arxiv.org/abs/1803.04610">https://arxiv.org/abs/1803.04610</a></p>
+
+<p><strong>DeepVoting: An Explainable Framework for Semantic Part Detection under Partial Occlusion</strong></p>
+
+<p><a href="https://arxiv.org/abs/1709.04577">https://arxiv.org/abs/1709.04577</a></p>
+
+<p><strong>VPGNet: Vanishing Point Guided Network for Lane and Road Marking Detection and Recognition</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1710.06288">https://arxiv.org/abs/1710.06288</a></li>
+  <li>github: <a href="https://github.com/SeokjuLee/VPGNet">https://github.com/SeokjuLee/VPGNet</a></li>
+</ul>
+
+<p><strong>Grab, Pay and Eat: Semantic Food Detection for Smart Restaurants</strong></p>
+
+<p><a href="https://arxiv.org/abs/1711.05128">https://arxiv.org/abs/1711.05128</a></p>
+
+<p><strong>ReMotENet: Efficient Relevant Motion Event Detection for Large-scale Home Surveillance Videos</strong></p>
+
+<ul>
+  <li>intro: WACV 2018</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1801.02031">https://arxiv.org/abs/1801.02031</a></li>
+</ul>
+
+<p><strong>Deep Learning Object Detection Methods for Ecological Camera Trap Data</strong></p>
+
+<ul>
+  <li>intro: Conference of Computer and Robot Vision. University of Guelph</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1803.10842">https://arxiv.org/abs/1803.10842</a></li>
+</ul>
+
+<h1 id="object-proposal">Object Proposal</h1>
+
+<p><strong>DeepProposal: Hunting Objects by Cascading Deep Convolutional Layers</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1510.04445">http://arxiv.org/abs/1510.04445</a></li>
+  <li>github: <a href="https://github.com/aghodrati/deepproposal">https://github.com/aghodrati/deepproposal</a></li>
+</ul>
+
+<p><strong>Scale-aware Pixel-wise Object Proposal Networks</strong></p>
+
+<ul>
+  <li>intro: IEEE Transactions on Image Processing</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1601.04798">http://arxiv.org/abs/1601.04798</a></li>
+</ul>
+
+<p><strong>Attend Refine Repeat: Active Box Proposal Generation via In-Out Localization</strong></p>
+
+<ul>
+  <li>intro: BMVC 2016. AttractioNet</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1606.04446">https://arxiv.org/abs/1606.04446</a></li>
+  <li>github: <a href="https://github.com/gidariss/AttractioNet">https://github.com/gidariss/AttractioNet</a></li>
+</ul>
+
+<p><strong>Learning to Segment Object Proposals via Recursive Neural Networks</strong></p>
+
+<ul>
+  <li>arxiv: <a href="https://arxiv.org/abs/1612.01057">https://arxiv.org/abs/1612.01057</a></li>
+</ul>
+
+<p><strong>Learning Detection with Diverse Proposals</strong></p>
+
+<ul>
+  <li>intro: CVPR 2017</li>
+  <li>keywords: differentiable Determinantal Point Process (DPP) layer, Learning Detection with Diverse Proposals (LDDP)</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.03533">https://arxiv.org/abs/1704.03533</a></li>
+</ul>
+
+<p><strong>ScaleNet: Guiding Object Proposal Generation in Supermarkets and Beyond</strong></p>
+
+<ul>
+  <li>keywords: product detection</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.06752">https://arxiv.org/abs/1704.06752</a></li>
+</ul>
+
+<p><strong>Improving Small Object Proposals for Company Logo Detection</strong></p>
+
+<ul>
+  <li>intro: ICMR 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1704.08881">https://arxiv.org/abs/1704.08881</a></li>
+</ul>
+
+<h1 id="localization">Localization</h1>
+
+<p><strong>Beyond Bounding Boxes: Precise Localization of Objects in Images</strong></p>
+
+<ul>
+  <li>intro: PhD Thesis</li>
+  <li>homepage: <a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-193.html">http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-193.html</a></li>
+  <li>phd-thesis: <a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-193.pdf">http://www.eecs.berkeley.edu/Pubs/TechRpts/2015/EECS-2015-193.pdf</a></li>
+  <li>github(“SDS using hypercolumns”): <a href="https://github.com/bharath272/sds">https://github.com/bharath272/sds</a></li>
+</ul>
+
+<p><strong>Weakly Supervised Object Localization with Multi-fold Multiple Instance Learning</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1503.00949">http://arxiv.org/abs/1503.00949</a></li>
+</ul>
+
+<p><strong>Weakly Supervised Object Localization Using Size Estimates</strong></p>
+
+<ul>
+  <li>arxiv: <a href="http://arxiv.org/abs/1608.04314">http://arxiv.org/abs/1608.04314</a></li>
+</ul>
+
+<p><strong>Active Object Localization with Deep Reinforcement Learning</strong></p>
+
+<ul>
+  <li>intro: ICCV 2015</li>
+  <li>keywords: Markov Decision Process</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1511.06015">https://arxiv.org/abs/1511.06015</a></li>
+</ul>
+
+<p><strong>Localizing objects using referring expressions</strong></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>keywords: LSTM, multiple instance learning (MIL)</li>
+  <li>paper: <a href="http://www.umiacs.umd.edu/~varun/files/refexp-ECCV16.pdf">http://www.umiacs.umd.edu/~varun/files/refexp-ECCV16.pdf</a></li>
+  <li>github: <a href="https://github.com/varun-nagaraja/referring-expressions">https://github.com/varun-nagaraja/referring-expressions</a></li>
+</ul>
+
+<p><strong>LocNet: Improving Localization Accuracy for Object Detection</strong></p>
+
+<ul>
+  <li>intro: CVPR 2016 oral</li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1511.07763">http://arxiv.org/abs/1511.07763</a></li>
+  <li>github: <a href="https://github.com/gidariss/LocNet">https://github.com/gidariss/LocNet</a></li>
+</ul>
+
+<p><strong>Learning Deep Features for Discriminative Localization</strong></p>
+
+<p><img src="http://cnnlocalization.csail.mit.edu/framework.jpg" alt="" /></p>
+
+<ul>
+  <li>homepage: <a href="http://cnnlocalization.csail.mit.edu/">http://cnnlocalization.csail.mit.edu/</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1512.04150">http://arxiv.org/abs/1512.04150</a></li>
+  <li>github(Tensorflow): <a href="https://github.com/jazzsaxmafia/Weakly_detector">https://github.com/jazzsaxmafia/Weakly_detector</a></li>
+  <li>github: <a href="https://github.com/metalbubble/CAM">https://github.com/metalbubble/CAM</a></li>
+  <li>github: <a href="https://github.com/tdeboissiere/VGG16CAM-keras">https://github.com/tdeboissiere/VGG16CAM-keras</a></li>
+</ul>
+
+<p><strong>ContextLocNet: Context-Aware Deep Network Models for Weakly Supervised Localization</strong></p>
+
+<p><img src="http://www.di.ens.fr/willow/research/contextlocnet/model.png" alt="" /></p>
+
+<ul>
+  <li>intro: ECCV 2016</li>
+  <li>project page: <a href="http://www.di.ens.fr/willow/research/contextlocnet/">http://www.di.ens.fr/willow/research/contextlocnet/</a></li>
+  <li>arxiv: <a href="http://arxiv.org/abs/1609.04331">http://arxiv.org/abs/1609.04331</a></li>
+  <li>github: <a href="https://github.com/vadimkantorov/contextlocnet">https://github.com/vadimkantorov/contextlocnet</a></li>
+</ul>
+
+<p><strong>Ensemble of Part Detectors for Simultaneous Classification and Localization</strong></p>
+
+<p><a href="https://arxiv.org/abs/1705.10034">https://arxiv.org/abs/1705.10034</a></p>
+
+<p><strong>STNet: Selective Tuning of Convolutional Networks for Object Localization</strong></p>
+
+<p><a href="https://arxiv.org/abs/1708.06418">https://arxiv.org/abs/1708.06418</a></p>
+
+<p><strong>Soft Proposal Networks for Weakly Supervised Object Localization</strong></p>
+
+<ul>
+  <li>intro: ICCV 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1709.01829">https://arxiv.org/abs/1709.01829</a></li>
+</ul>
+
+<p><strong>Fine-grained Discriminative Localization via Saliency-guided Faster R-CNN</strong></p>
+
+<ul>
+  <li>intro: ACM MM 2017</li>
+  <li>arxiv: <a href="https://arxiv.org/abs/1709.08295">https://arxiv.org/abs/1709.08295</a></li>
+</ul>
+
+<h1 id="tutorials--talks">Tutorials / Talks</h1>
+
+<p><strong>Convolutional Feature Maps: Elements of efficient (and accurate) CNN-based object detection</strong></p>
+
+<ul>
+  <li>slides: <a href="http://research.microsoft.com/en-us/um/people/kahe/iccv15tutorial/iccv2015_tutorial_convolutional_feature_maps_kaiminghe.pdf">http://research.microsoft.com/en-us/um/people/kahe/iccv15tutorial/iccv2015_tutorial_convolutional_feature_maps_kaiminghe.pdf</a></li>
+</ul>
+
+<p><strong>Towards Good Practices for Recognition &amp; Detection</strong></p>
+
+<ul>
+  <li>intro: Hikvision Research Institute. Supervised Data Augmentation (SDA)</li>
+  <li>slides: <a href="http://image-net.org/challenges/talks/2016/Hikvision_at_ImageNet_2016.pdf">http://image-net.org/challenges/talks/2016/Hikvision_at_ImageNet_2016.pdf</a></li>
+</ul>
+
+<p><strong>Work  in progress: Improving object detection and instance segmentation for small objects</strong></p>
+
+<p><a href="https://docs.google.com/presentation/d/1OTfGn6mLe1VWE8D0q6Tu_WwFTSoLGd4OF8WCYnOWcVo/edit#slide=id.g37418adc7a_0_229">https://docs.google.com/presentation/d/1OTfGn6mLe1VWE8D0q6Tu_WwFTSoLGd4OF8WCYnOWcVo/edit#slide=id.g37418adc7a_0_229</a></p>
+
+<h1 id="projects">Projects</h1>
+
+<p><strong>Detectron</strong></p>
+
+<ul>
+  <li>intro: FAIR’s research platform for object detection research, implementing popular algorithms like Mask R-CNN and RetinaNet.</li>
+  <li>github: <a href="https://github.com/facebookresearch/Detectron">https://github.com/facebookresearch/Detectron</a></li>
+</ul>
+
+<p><strong>TensorBox: a simple framework for training neural networks to detect objects in images</strong></p>
+
+<ul>
+  <li>intro: “The basic model implements the simple and robust GoogLeNet-OverFeat algorithm. 
+We additionally provide an implementation of the <a href="https://github.com/Russell91/ReInspect/">ReInspect</a> algorithm”</li>
+  <li>github: <a href="https://github.com/Russell91/TensorBox">https://github.com/Russell91/TensorBox</a></li>
+</ul>
+
+<p><strong>Object detection in torch: Implementation of some object detection frameworks in torch</strong></p>
+
+<ul>
+  <li>github: <a href="https://github.com/fmassa/object-detection.torch">https://github.com/fmassa/object-detection.torch</a></li>
+</ul>
+
+<p><strong>Using DIGITS to train an Object Detection network</strong></p>
+
+<ul>
+  <li>github: <a href="https://github.com/NVIDIA/DIGITS/blob/master/examples/object-detection/README.md">https://github.com/NVIDIA/DIGITS/blob/master/examples/object-detection/README.md</a></li>
+</ul>
+
+<p><strong>FCN-MultiBox Detector</strong></p>
+
+<ul>
+  <li>intro: Full convolution MultiBox Detector (like SSD) implemented in Torch.</li>
+  <li>github: <a href="https://github.com/teaonly/FMD.torch">https://github.com/teaonly/FMD.torch</a></li>
+</ul>
+
+<p><strong>KittiBox: A car detection model implemented in Tensorflow.</strong></p>
+
+<ul>
+  <li>keywords: MultiNet</li>
+  <li>intro: KittiBox is a collection of scripts to train out model FastBox on the Kitti Object Detection Dataset</li>
+  <li>github: <a href="https://github.com/MarvinTeichmann/KittiBox">https://github.com/MarvinTeichmann/KittiBox</a></li>
+</ul>
+
+<p><strong>Deformable Convolutional Networks + MST + Soft-NMS</strong></p>
+
+<ul>
+  <li>github: <a href="https://github.com/bharatsingh430/Deformable-ConvNets">https://github.com/bharatsingh430/Deformable-ConvNets</a></li>
+</ul>
+
+<p><strong>How to Build a Real-time Hand-Detector using Neural Networks (SSD) on Tensorflow</strong></p>
+
+<ul>
+  <li>blog: <a href="https://towardsdatascience.com/how-to-build-a-real-time-hand-detector-using-neural-networks-ssd-on-tensorflow-d6bac0e4b2ce">https://towardsdatascience.com/how-to-build-a-real-time-hand-detector-using-neural-networks-ssd-on-tensorflow-d6bac0e4b2ce</a></li>
+  <li>github: <a href="https://github.com//victordibia/handtracking">https://github.com//victordibia/handtracking</a></li>
+</ul>
+
+<h1 id="leaderboard">Leaderboard</h1>
+
+<p><strong>Detection Results: VOC2012</strong></p>
+
+<ul>
+  <li>intro: Competition “comp4” (train on additional data)</li>
+  <li>homepage: <a href="http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&amp;compid=4">http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php?challengeid=11&amp;compid=4</a></li>
+</ul>
+
+<h1 id="tools">Tools</h1>
+
+<p><strong>BeaverDam: Video annotation tool for deep learning training labels</strong></p>
+
+<p><a href="https://github.com/antingshen/BeaverDam">https://github.com/antingshen/BeaverDam</a></p>
+
+<h1 id="blogs">Blogs</h1>
+
+<p><strong>Convolutional Neural Networks for Object Detection</strong></p>
+
+<p><a href="http://rnd.azoft.com/convolutional-neural-networks-object-detection/">http://rnd.azoft.com/convolutional-neural-networks-object-detection/</a></p>
+
+<p><strong>Introducing automatic object detection to visual search (Pinterest)</strong></p>
+
+<ul>
+  <li>keywords: Faster R-CNN</li>
+  <li>blog: <a href="https://engineering.pinterest.com/blog/introducing-automatic-object-detection-visual-search">https://engineering.pinterest.com/blog/introducing-automatic-object-detection-visual-search</a></li>
+  <li>demo: <a href="https://engineering.pinterest.com/sites/engineering/files/Visual%20Search%20V1%20-%20Video.mp4">https://engineering.pinterest.com/sites/engineering/files/Visual%20Search%20V1%20-%20Video.mp4</a></li>
+  <li>review: <a href="https://news.developer.nvidia.com/pinterest-introduces-the-future-of-visual-search/?mkt_tok=eyJpIjoiTnpaa01UWXpPRE0xTURFMiIsInQiOiJJRjcybjkwTmtmallORUhLOFFFODBDclFqUlB3SWlRVXJXb1MrQ013TDRIMGxLQWlBczFIeWg0TFRUdnN2UHY2ZWFiXC9QQVwvQzBHM3B0UzBZblpOSmUyU1FcLzNPWXI4cml2VERwTTJsOFwvOEk9In0%3D">https://news.developer.nvidia.com/pinterest-introduces-the-future-of-visual-search/?mkt_tok=eyJpIjoiTnpaa01UWXpPRE0xTURFMiIsInQiOiJJRjcybjkwTmtmallORUhLOFFFODBDclFqUlB3SWlRVXJXb1MrQ013TDRIMGxLQWlBczFIeWg0TFRUdnN2UHY2ZWFiXC9QQVwvQzBHM3B0UzBZblpOSmUyU1FcLzNPWXI4cml2VERwTTJsOFwvOEk9In0%3D</a></li>
+</ul>
+
+<p><strong>Deep Learning for Object Detection with DIGITS</strong></p>
+
+<ul>
+  <li>blog: <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-object-detection-digits/">https://devblogs.nvidia.com/parallelforall/deep-learning-object-detection-digits/</a></li>
+</ul>
+
+<p><strong>Analyzing The Papers Behind Facebook’s Computer Vision Approach</strong></p>
+
+<ul>
+  <li>keywords: DeepMask, SharpMask, MultiPathNet</li>
+  <li>blog: <a href="https://adeshpande3.github.io/adeshpande3.github.io/Analyzing-the-Papers-Behind-Facebook's-Computer-Vision-Approach/">https://adeshpande3.github.io/adeshpande3.github.io/Analyzing-the-Papers-Behind-Facebook’s-Computer-Vision-Approach/</a></li>
+</ul>
+
+<p><strong>Easily Create High Quality Object Detectors with Deep Learning</strong></p>
+
+<ul>
+  <li>intro: dlib v19.2</li>
+  <li>blog: <a href="http://blog.dlib.net/2016/10/easily-create-high-quality-object.html">http://blog.dlib.net/2016/10/easily-create-high-quality-object.html</a></li>
+</ul>
+
+<p><strong>How to Train a Deep-Learned Object Detection Model in the Microsoft Cognitive Toolkit</strong></p>
+
+<ul>
+  <li>blog: <a href="https://blogs.technet.microsoft.com/machinelearning/2016/10/25/how-to-train-a-deep-learned-object-detection-model-in-cntk/">https://blogs.technet.microsoft.com/machinelearning/2016/10/25/how-to-train-a-deep-learned-object-detection-model-in-cntk/</a></li>
+  <li>github: <a href="https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Detection/FastRCNN">https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Detection/FastRCNN</a></li>
+</ul>
+
+<p><strong>Object Detection in Satellite Imagery, a Low Overhead Approach</strong></p>
+
+<ul>
+  <li>part 1: <a href="https://medium.com/the-downlinq/object-detection-in-satellite-imagery-a-low-overhead-approach-part-i-cbd96154a1b7#.2csh4iwx9">https://medium.com/the-downlinq/object-detection-in-satellite-imagery-a-low-overhead-approach-part-i-cbd96154a1b7#.2csh4iwx9</a></li>
+  <li>part 2: <a href="https://medium.com/the-downlinq/object-detection-in-satellite-imagery-a-low-overhead-approach-part-ii-893f40122f92#.f9b7dgf64">https://medium.com/the-downlinq/object-detection-in-satellite-imagery-a-low-overhead-approach-part-ii-893f40122f92#.f9b7dgf64</a></li>
+</ul>
+
+<p><strong>You Only Look Twice — Multi-Scale Object Detection in Satellite Imagery With Convolutional Neural Networks</strong></p>
+
+<ul>
+  <li>part 1: <a href="https://medium.com/the-downlinq/you-only-look-twice-multi-scale-object-detection-in-satellite-imagery-with-convolutional-neural-38dad1cf7571#.fmmi2o3of">https://medium.com/the-downlinq/you-only-look-twice-multi-scale-object-detection-in-satellite-imagery-with-convolutional-neural-38dad1cf7571#.fmmi2o3of</a></li>
+  <li>part 2: <a href="https://medium.com/the-downlinq/you-only-look-twice-multi-scale-object-detection-in-satellite-imagery-with-convolutional-neural-34f72f659588#.nwzarsz1t">https://medium.com/the-downlinq/you-only-look-twice-multi-scale-object-detection-in-satellite-imagery-with-convolutional-neural-34f72f659588#.nwzarsz1t</a></li>
+</ul>
+
+<p><strong>Faster R-CNN Pedestrian and Car Detection</strong></p>
+
+<ul>
+  <li>blog: <a href="https://bigsnarf.wordpress.com/2016/11/07/faster-r-cnn-pedestrian-and-car-detection/">https://bigsnarf.wordpress.com/2016/11/07/faster-r-cnn-pedestrian-and-car-detection/</a></li>
+  <li>ipn: <a href="https://gist.github.com/bigsnarfdude/2f7b2144065f6056892a98495644d3e0#file-demo_faster_rcnn_notebook-ipynb">https://gist.github.com/bigsnarfdude/2f7b2144065f6056892a98495644d3e0#file-demo_faster_rcnn_notebook-ipynb</a></li>
+  <li>github: <a href="https://github.com/bigsnarfdude/Faster-RCNN_TF">https://github.com/bigsnarfdude/Faster-RCNN_TF</a></li>
+</ul>
+
+<p><strong>Small U-Net for vehicle detection</strong></p>
+
+<ul>
+  <li>blog: <a href="https://medium.com/@vivek.yadav/small-u-net-for-vehicle-detection-9eec216f9fd6#.md4u80kad">https://medium.com/@vivek.yadav/small-u-net-for-vehicle-detection-9eec216f9fd6#.md4u80kad</a></li>
+</ul>
+
+<p><strong>Region of interest pooling explained</strong></p>
+
+<ul>
+  <li>blog: <a href="https://deepsense.io/region-of-interest-pooling-explained/">https://deepsense.io/region-of-interest-pooling-explained/</a></li>
+  <li>github: <a href="https://github.com/deepsense-io/roi-pooling">https://github.com/deepsense-io/roi-pooling</a></li>
+</ul>
+
+<p><strong>Supercharge your Computer Vision models with the TensorFlow Object Detection API</strong></p>
+
+<ul>
+  <li>blog: <a href="https://research.googleblog.com/2017/06/supercharge-your-computer-vision-models.html">https://research.googleblog.com/2017/06/supercharge-your-computer-vision-models.html</a></li>
+  <li>github: <a href="https://github.com/tensorflow/models/tree/master/object_detection">https://github.com/tensorflow/models/tree/master/object_detection</a></li>
+</ul>
+
+<p><strong>Understanding SSD MultiBox — Real-Time Object Detection In Deep Learning</strong></p>
+
+<p><a href="https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab">https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab</a></p>
+
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a>
+        <a href="#" class="bds_more" data-cmd="more"></a>
+    </div>
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/deep_learning/2015/10/09/nlp.html" rel="bookmark">&laquo;&nbsp;Natural Language Processing</a>
+        
+        
+        <a class="next" href="/deep_learning/2015/10/09/ocr.html" rel="bookmark">OCR&nbsp;&raquo;</a>
+        
+    </nav>
+    <div class="comment">
+        
+        <div id="disqus_thread"></div>
+        
+    </div>
+</div>
+
+                </div>
+
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="/images/header2.jpg" />
+                            </div>
+                            <div class="det-text">
+                                <p>Hi world~</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="https://handong1587.github.io/study/2018/04/18/resources.html" title="Study Resources" rel="bookmark">Study Resources</a></li>
+                            
+                                <li><a href="https://handong1587.github.io/deep_learning/2017/12/18/keep-up-with-new-trends.html" title="Keep Up With New Trends" rel="bookmark">Keep Up With New Trends</a></li>
+                            
+                                <li><a href="https://handong1587.github.io/study/2017/11/28/courses.html" title="Courses" rel="bookmark">Courses</a></li>
+                            
+                                <li><a href="https://handong1587.github.io/programming_study/2016/12/24/pyinstaller-and-others.html" title="PyInstsaller and Others" rel="bookmark">PyInstsaller and Others</a></li>
+                            
+                                <li><a href="https://handong1587.github.io/programming_study/2016/09/07/cpp-programming-solutions.html" title="C++ Programming Solutions" rel="bookmark">C++ Programming Solutions</a></li>
+                            
+                                <li><a href="https://handong1587.github.io/web_dev/2016/07/31/add-lunr-search-plugin-for-blog.html" title="Add Lunr Search Plugin For Blog" rel="bookmark">Add Lunr Search Plugin For Blog</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <div class="footer">
+                <p>A blog template forked from <a href="https://github.com/zJiaJun/zJiaJun.github.io" target="_blank">zJiaJun</a>. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>.</p>
+            </div>
+        </div>
+
+        
+
+        
+
+        <!-- mathjax -->
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Search in CSE home -->
+        <script>
+        (function() {
+            var cx = '003287793477459687163:n59nxpgejxy';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+        </script>
+        <gcse:search></gcse:search>
+
+        <!-- jekyll-table-of-contents -->
+        <script src="/javascript/toc.js" type="text/javascript"></script>
+
+        <!-- Script to display table of content -->
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#toc').toc({ showEffect: 'slideDown' });
+        }); </script>
+
+    </body>
+</html>
